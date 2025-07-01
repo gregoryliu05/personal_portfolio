@@ -1,103 +1,80 @@
-import Image from "next/image";
+'use client'
+import { useEffect, useState } from "react";
+
+type TextProps = {
+  text: string;
+  size: string;
+};
+
+const Text = ({text, size}: TextProps) => {
+  return <span className={`text-${size} font-emerald text-shadow-[0_2px_2px_rgb(0_0_0_/_0.25)] text-pokemon`}>
+    {text}
+  </span>
+}
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isPopup, setIsPopup] = useState(false)
+  const [time, setTime] = useState(new Date().toLocaleTimeString())
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTime(new Date().toLocaleTimeString())
+    }, 1000)
+  }, [])
+
+  // my home page
+  return (
+    <main className="flex-cols h-dvh bg-[#fffdfa]">
+      {/* TOP HEADER */}
+      <header className = "flex justify-center h-1/10">
+        <div className="flex w-1/2 justify-start">
+          <Text size = "lg" text = 'Greg Liu'/>
+          </div>
+        <div className="flex w-1/2 justify-end">
+          <h1 className= "justify-end">{time}</h1>
+          </div>
+      </header>
+
+      {/* MAIN BODY PART */}
+      <div className= "flex h-8/10">
+      {/* CENTER COMPONENT*/}
+      <div className="w-1/4"></div>
+      <div className = "flex-col w-1/2 items-center">
+        <section className= "flex h-1/8 justify-center"> <h1 className="justify-center">Welcome to my personal site!</h1></section>
+
+        {/* <image></image> */}
+        <h1 className="flex h-4/8 justify-center"> PUT IMAGE HERE </h1>
+
+        {/* TODO: TURN THIS INTO TEXT COMPONENT*/}
+        <section className="flex h-3/8 justify-center">
+          <h1>Hi! My Name is Greg. Nice to meet you!</h1>
+        </section>
+      </div>
+
+      {/* Side Popup */}
+      <div className="flex w-1/4 items-center">
+        {(isPopup? <h1 className="">lol</h1>
+        :
+        <span className="flex justify-center"> press (START) or click here for more about me</span>)}
+      </div>
+
+      </div>
+
+
+      {/* Footer */ }
+      <footer className= "flex justify-center h-1/10">
+        <div className="flex w-1/2 justify-start">
+          Optional Controls
+          </div>
+        <div className="flex w-1/2 justify-end">
+           {/* <image></image> */}
+          <h1>Play some music</h1>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
       </footer>
-    </div>
+
+
+
+
+    </main>
   );
 }
