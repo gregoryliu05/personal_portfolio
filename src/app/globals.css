@@ -4,6 +4,10 @@
   --background: #ffffff;
   --foreground: #171717;
   --pokemon: #717171;
+  --greenbackground:#05D3C3;
+  --greenshadow:#03FFA6;
+  --purplebackground: #766d95;
+  --whiteshadow: #EAF0E9;
 }
 
 @theme inline {
@@ -12,6 +16,10 @@
   --color-pokemon: var(--pokemon);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-greenbg: var(--greenbackground);
+  --color-purplebg: var(--purplebackground);
+  --color-greensd: var(--greenshadow);
+  --color-whitesd: var(--whiteshadow)
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,6 +28,7 @@
     --foreground: #ededed;
   }
 }
+
 
 
 body {
