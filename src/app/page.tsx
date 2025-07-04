@@ -3,13 +3,23 @@
 import clsx from 'clsx';
 
 import { useEffect, useState } from "react";
-import {Text, TextBox} from "../components/components"
+import {Text, TextBox, backgroundMap} from "../components/components"
 
-import {NavBar} from "../components/navBar"
+import {NavBar,} from "../components/navBar"
 
 export default function Home() {
-  const [isPopup, setIsPopup] = useState(true)
+  const [isPopup, setIsPopup] = useState(false)
   const [time, setTime] = useState(new Date().toLocaleTimeString())
+
+   useEffect(() => {
+          const handleKeyDown = (e: KeyboardEvent) => {
+              if (e.key === "Enter") {
+                  setIsPopup(!isPopup)
+              }
+          }
+          window.addEventListener('keydown', handleKeyDown);
+          return () => window.removeEventListener('keydown', handleKeyDown);
+      }, [isPopup])
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -53,25 +63,51 @@ export default function Home() {
 
       {/* Side Popup */}
       <div className="flex w-1/4 items-center justify-end">
-        {(isPopup? <NavBar background='purple'/>
+        {(isPopup? <NavBar background='purple' isPopup = {isPopup} setIsPopup = {setIsPopup}/>
         :
-        <div className='flex w-1/2 items-center'>
+        <button className='flex w-1/2 items-center' onClick = {() => {
+          (setIsPopup(true))
+        }}>
         <Text text = "press (START) or click here for more about me" size = "2xl"/>
-        </div>
+        </button>
         )}
       </div>
 
       </div>
 
-
+      {/* TODO  */}
       {/* Footer */ }
       <footer className= "flex justify-center h-1/10">
-        <div className="flex w-1/2 justify-start">
-          Optional Controls
+        <div className="flex w-full h-full justify-start">
+         <div className='flex w-9/10 justify-start items-start pl-1'>
+                     <section className= {clsx(
+                         backgroundMap["purple"] ?? '',
+                         "flex",
+                         "w-6/10",
+                         "h-10/10",
+                         "justify-center",
+                         "items-center",
+                         "rounded-sm",
+                         "ring-2",
+                         "ring-black/75"
+                     )}>
+                         <section className= "flex bg-white w-97/100 h-9/10 rounded-sm inset-ring-2 inset-ring-whitesd">
+                             <span className='pl-3 pt-1 flex-row'>
+                                <h1 className='font-emerald
+                                  text-shadow-[0_2px_1px_rgb(0_0_0_/_0.20)]
+                                  text-[#FFBC61]
+                                  text-2xl' > Optional Controls:</h1>
+                             <Text text = '(S) = A | (D) = B | (ENTER) = START| ARROW KEYS to navigate' size = "lg" align = "left"/>
+                             </span>
+                             <h1>
+                             </h1>
+                         </section>
+                     </section>
+                     </div>
           </div>
-        <div className="flex w-1/2 justify-end">
+        <div className="flex w-1/2 justify-end items-end">
            {/* <image></image> */}
-          <h1>Play some music</h1>
+          <h1>website inspired by pokemon ruby/sapphire/emerald</h1>
         </div>
       </footer>
 
