@@ -3,9 +3,9 @@
 import clsx from 'clsx';
 
 import { useEffect, useState } from "react";
-import {Text, TextBox, backgroundMap} from "../components/components"
+import {Text, TextBox, backgroundMap, Header} from "../components/components"
 
-import {NavBar,} from "../components/navBar"
+import {NavBar} from "../components/navBar"
 
 export default function Home() {
   const [isPopup, setIsPopup] = useState(false)
@@ -33,13 +33,14 @@ export default function Home() {
   return (
     <main className="flex-cols h-dvh bg-[#fffdfa]">
       {/* TOP HEADER */}
-      <header className = "flex justify-center h-1/10">
-        <div className="flex w-1/2 justify-start pl-3">
+      <header className = "h-1/10">
+        <Header></Header>
+        {/* <div className="flex w-1/2 justify-start pl-3">
           <Text size = "2xl" text = 'Greg Liu'/>
           </div>
-        <div className="flex w-1/2 justify-end">
+        <div className="flex w-1/2 justify-end pr-3">
           <Text size = "2xl" text = {time}/>
-          </div>
+          </div> */}
       </header>
 
       {/* MAIN BODY PART */}

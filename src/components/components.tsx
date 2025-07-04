@@ -49,6 +49,30 @@ export const Text = ({text, size, align}: TextProps) => {
   </span>
 }
 
+export const Header = () => {
+  const [time, setTime] = useState(new Date().toLocaleTimeString())
+
+   useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTime(new Date().toLocaleTimeString())
+    }, 1000)
+
+    return () => clearInterval(intervalId);
+  }, [])
+
+
+  return (
+    <header className = "flex justify-center">
+        <div className="flex w-1/2 justify-start pl-3">
+          <Text size = "2xl" text = 'Greg Liu'/>
+          </div>
+        <div className="flex w-1/2 justify-end pr-3">
+          <Text size = "2xl" text = {time}/>
+          </div>
+      </header>
+  )
+
+}
 
 export const TextBox = ({text, background}: TextBoxProps) => {
     return (<div className='flex w-9/10 h-full justify-center items-start'>

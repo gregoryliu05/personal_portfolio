@@ -8,7 +8,9 @@ import {Text, TextBox, backgroundMap, TextBoxProps} from "./components";
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
+import arrow from "./../arrow.png"
 
 type navBarProps = {
     background:string
@@ -77,15 +79,19 @@ export const NavBar = ({background, isPopup, setIsPopup}: navBarProps) => {
                                 {navBarItems.map((item, index) =>{
                                     switch(item.type) {
                                         case "link":
-                                            return <div key = {index} className='flex col'>
-                                                {index == selectId? <h1 className='w-1/20'>t</h1> : <h1 className='pl-2'></h1>}
+                                            return <div key = {index} className='flex col items-center'>
+                                                {index == selectId? <Image
+                                                 className='w-2/20 h-1/20 justify-center' src = {arrow} alt = "arrow" width = {20} height = {20}/>
+                                                  : <h1 className='pl-2'></h1>}
                                                 <Link  href = {`/${item.text.toLowerCase()}`} className='pl-1'>
                                             <Text text= {item.text} size="3xl" align="center"/>
                                             </Link>
                                             </div>
                                         case "button":
-                                            return <div key = {index} className='flex col'>
-                                                 {index == selectId? <h1 className='w-1/20'>t</h1> : <h1 className='pl-2'></h1>}
+                                            return <div key = {index} className='flex col items-center'>
+                                                 {index == selectId ? <Image
+                                                 className='w-2/20 h-1/20 justify-center' src = {arrow} alt = "arrow" width = {20} height = {20}/>
+                                                 : <h1 className='pl-2'></h1>}
                                                     <button key = {index} onClick = {() => {
                                                     (setIsPopup(false))
                                                     }}
