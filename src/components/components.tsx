@@ -21,6 +21,22 @@ const sizeMap: Record<string, string> = {
   // Add more as needed
 };
 
+export const hMap: Record<string, string> = {
+  "h-1/3": "h-1/3",
+  "95": "h-[95%]"
+
+  // Add more as needed
+};
+
+export const wMap: Record<string, string> = {
+  "w-8/10": "w-8/10",
+  "67": "w-[67%]",
+  '100': 'w-[100%]'
+
+  // Add more as needed
+};
+
+
 const alignMap:  Record<string,string> = {
   center: "justify-center",
   left: "justify-start",
@@ -28,13 +44,15 @@ const alignMap:  Record<string,string> = {
 }
 
 export const backgroundMap: Record<string,string> = {
-    green: "bg-[#05D3C3]",
-    purple: "bg-[#766d95]"
+    green: "bg-[#05D3C3] ring-greensd",
+    purple: "bg-[#766d95] ring-black/75"
 }
 
 export type TextBoxProps = {
     text: string;
     background: string;
+    height: string;
+    width: string;
 }
 
 export const Text = ({text, size, align}: TextProps) => {
@@ -74,18 +92,18 @@ export const Header = () => {
 
 }
 
-export const TextBox = ({text, background}: TextBoxProps) => {
-    return (<div className='flex w-9/10 h-full justify-center items-start'>
+export const TextBox = ({text, background, height, width}: TextBoxProps) => {
+    return (<div className='flex w-full h-full justify-center items-start'>
             <section className= {clsx(
                 backgroundMap[background] ?? '',
                 "flex",
-                "w-8/10",
-                "h-1/3",
+                hMap[height] ?? '',
+                wMap[width] ?? '',
                 "justify-center",
                 "items-center",
                 "rounded-sm",
-                "ring-2",
-                "ring-greensd"
+                "ring-1",
+
             )}>
                 <section className= "flex bg-white w-97/100 h-9/10 rounded-sm inset-ring-2 inset-ring-whitesd">
                     <span className='pl-3 pt-2'>
