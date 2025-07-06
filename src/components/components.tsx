@@ -53,6 +53,7 @@ export type TextBoxProps = {
     background: string;
     height: string;
     width: string;
+    size: string;
 }
 
 export const Text = ({text, size, align}: TextProps) => {
@@ -92,7 +93,7 @@ export const Header = () => {
 
 }
 
-export const TextBox = ({text, background, height, width}: TextBoxProps) => {
+export const TextBox = ({text, background, height, width, size}: TextBoxProps) => {
     return (<div className='flex w-full h-full justify-center items-start'>
             <section className= {clsx(
                 backgroundMap[background] ?? '',
@@ -107,7 +108,7 @@ export const TextBox = ({text, background, height, width}: TextBoxProps) => {
             )}>
                 <section className= "flex bg-white w-97/100 h-9/10 rounded-sm inset-ring-2 inset-ring-whitesd">
                     <span className='pl-3 pt-2'>
-                    <Text text = {text} size = "2xl" align = "left"/>
+                    <Text text = {text} size = {size} align = "left"/>
                     </span>
                     <h1>
                     </h1>
