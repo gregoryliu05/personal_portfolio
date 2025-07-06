@@ -17,7 +17,7 @@ import sf from "./../../stayfresh.jpeg"
 import quantico from "./../../quantico.jpg"
 
 
-const workExp = [
+export const workExp = [
   { type: "header",
     title: "software engineer intern",
     company: "procurify",
@@ -46,12 +46,12 @@ const workExp = [
     date: "june - july 2023",
     img: edifier
   },
-  { type: false
+  // { type: false
 
-  },
-  { type: false
+  // },
+  // { type: false
 
-  }
+  // }
 ]
 
 type infoBoxProps = {
@@ -71,18 +71,44 @@ const InfoBox = ({ text, className }: infoBoxProps) => {
 
 export default function ExperiencePage() {
   const router = useRouter()
-  const [index, setIndex] = useState(0)
+  const [selectId, setSelectId] = useState(0)
+
+
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "s") {
         router.push("/")
       }
+      else if (e.key === "ArrowDown") {
+        setSelectId((selectId + 1) % workExp.length)
+        console.log(selectId)
+      }
+      else if (e.key === "ArrowUp") {
+        setSelectId((selectId - 1 + workExp.length) % workExp.length)
+        console.log(selectId)
+    } else if (e.key === "ArrowLeft") {
+      if (selectId == 1) {
+        setSelectId((selectId - 1 + workExp.length) % workExp.length)
+        console.log(selectId)
+      }
+
+    } else if (e.key === "ArrowRight") {
+      if (selectId == 0) {
+         setSelectId((selectId + 1) % workExp.length)
+          console.log(selectId)
+      }
+
     }
+     else if (e.key === "d") {
+
+
+    }
+  }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [router])
+  }, [selectId, router])
 
   return (
     <main className='flex-cols bg-[#fffdfa] h-dvh'>
@@ -96,7 +122,7 @@ export default function ExperiencePage() {
       {/* FIRST EXPERIENCE MAIN ONE */}
       <section className='flex h-full w-[40%] items-start justify-end pt-20'>
       {/* box */}
-        <div className='flex flex-col justify-end w-[80%] h-[48.96%] bg-[#79D1ed] border-[#fb702e] border-2 rounded-lg pb-2'>
+        <div className={clsx('flex flex-col justify-end w-[80%] h-[48.96%] border-2 rounded-lg pb-2', selectId == 0 ? "border-[#fb702e] bg-[#79D1ed]": "border-black bg-[#3693e2]")}>
           <section className='flex flex-row'>
             <div className='ml-1 w-[21%]'>
             <Image className='flex h-full justify-center rounded-full' src = {procurify} alt = "arrow" />
@@ -120,7 +146,9 @@ export default function ExperiencePage() {
         {workExp.map((item, index) => {
                 switch (item.type) {
                   case true:
-                    return <div key = {index} className= 'flex flex-row h-[14%] w-[90%] justify-center gap-1 bg-[#3693e2] border-2 rounded-lg items-center'>
+                    return <div key = {index} className= {clsx('flex flex-row h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center',
+                      index == selectId ? "border-[#fb702e] bg-[#79D1ed]": "border-black bg-[#3693e2]"
+                    )}>
                             <div className='ml-1 w-1/10'>
                             <Image className='flex mr-auto w-full justify-center rounded-full' src = {item.img ?? ""} alt = "arrow"/>
                           </div>
@@ -141,7 +169,12 @@ export default function ExperiencePage() {
                 }
 
             })}
-
+        <div  className='flex h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center '>
+                      <h1 className='text-2xl font-emerald text-pokemon drop-shadow-[0_2px_2px_rgb(0_0_0_/_0.67)] justify-center'> More to Come!</h1>
+                    </div>
+                    <div className='flex h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center '>
+                      <h1 className='text-2xl font-emerald text-pokemon drop-shadow-[0_2px_2px_rgb(0_0_0_/_0.67)] justify-center'> More to Come!</h1>
+                    </div>
 
       </section>
 

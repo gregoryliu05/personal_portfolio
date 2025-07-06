@@ -73,8 +73,7 @@ export const NavBar = ({background, isPopup, setIsPopup}: navBarProps) => {
                         "ring-black/75"
                     )}>
 
-                        {/* TODO: put the arrow thing inside the map, if i select smth show it, change this from a grid
-                        to just a flex thing */}
+
                         <div className= "flex-row gap-2 bg-white w-92/100 h-95/100 rounded-sm inset-ring-2 inset-ring-whitesd">
                             <div className='pl-4 flex flex-col pt-10'>
                                 {navBarItems.map((item, index) =>{
