@@ -23,13 +23,15 @@ export const workExp = [
     company: "procurify",
     location: "vancouver, bc",
     date: "incoming fall 2025",
+    link: "procurify",
     img: procurify
   },
   { type: true,
     title: "software developer intern",
-    company: "Stay Fresh",
+    company: "stay fresh",
     location: "richmond, bc",
     date: "january - april 2024",
+    link: "stayfresh",
     img: sf
   },
   { type: true,
@@ -37,6 +39,7 @@ export const workExp = [
     company: "ubc quantico research",
     location: "vancouver, bc",
     date: "january 2025 - present",
+    link: "quantico",
     img: quantico
   },
   { type: true,
@@ -44,6 +47,7 @@ export const workExp = [
     company: "edifier",
     location: "beijing, china",
     date: "june - july 2023",
+    link: 'edifier',
     img: edifier
   },
   // { type: false
@@ -122,7 +126,8 @@ export default function ExperiencePage() {
       {/* FIRST EXPERIENCE MAIN ONE */}
       <section className='flex h-full w-[40%] items-start justify-end pt-20'>
       {/* box */}
-        <div className={clsx('flex flex-col justify-end w-[80%] h-[48.96%] border-2 rounded-lg pb-2', selectId == 0 ? "border-[#fb702e] bg-[#79D1ed]": "border-black bg-[#3693e2]")}>
+        <Link href= {`/experience/${workExp[0].link}`}
+        className={clsx('flex flex-col justify-end w-[80%] h-[48.96%] border-2 rounded-lg pb-2', selectId == 0 ? "border-[#fb702e] bg-[#79D1ed]": "border-black bg-[#3693e2]")}>
           <section className='flex flex-row'>
             <div className='ml-1 w-[21%]'>
             <Image className='flex h-full justify-center rounded-full' src = {procurify} alt = "arrow" />
@@ -137,7 +142,7 @@ export default function ExperiencePage() {
               <InfoBox text = {workExp[0].date ?? ""}></InfoBox>
 
           </section>
-        </div>
+        </Link>
       </section>
 
 
@@ -146,9 +151,11 @@ export default function ExperiencePage() {
         {workExp.map((item, index) => {
                 switch (item.type) {
                   case true:
-                    return <div key = {index} className= {clsx('flex flex-row h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center',
+                    return <Link key = {index} className= {clsx('flex flex-row h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center',
                       index == selectId ? "border-[#fb702e] bg-[#79D1ed]": "border-black bg-[#3693e2]"
-                    )}>
+
+                    )}
+                    href = {`/experience/${item.link}`}>
                             <div className='ml-1 w-1/10'>
                             <Image className='flex mr-auto w-full justify-center rounded-full' src = {item.img ?? ""} alt = "arrow"/>
                           </div>
@@ -161,7 +168,7 @@ export default function ExperiencePage() {
                               <InfoBox text = {item.location ?? ""}></InfoBox>
                               <InfoBox text = {item.date ?? ""}></InfoBox>
                             </section>
-                    </div>
+                    </Link>
                   case false:
                     return <div key = {index} className='flex h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center '>
                       <h1 className='text-2xl font-emerald text-pokemon drop-shadow-[0_2px_2px_rgb(0_0_0_/_0.67)] justify-center'> More to Come!</h1>
