@@ -44,7 +44,7 @@ export default function Home() {
       <div className = "flex-col w-1/2 items-center">
         <section className= "flex h-1/8 justify-center">
         <span className="items-center">
-          <Text text = "Welcome to My Personal Site!" size = "3xl" align = "center"/>
+          <Text text = "Welcome to My Portfolio Site!" size = "4xl" align = "center"/>
           </span>
           </section>
 
@@ -52,7 +52,7 @@ export default function Home() {
         <h1 className="flex h-4/9 justify-center"> PUT IMAGE HERE </h1>
 
         <section className="flex h-3/8 w-full justify-center">
-        <TextBox text = "Hi! My Name is Greg. Nice to meet you!" background = "green" height='h-1/3' width='w-8/10' size = "2xl"/>
+        <TextBox text = "Hi! My Name is Greg. Nice to meet you!" background = "green" height='h-1/3' width='w-8/10' size = "2xl" justify='center'/>
         </section>
       </div>
 

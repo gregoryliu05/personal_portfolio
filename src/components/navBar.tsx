@@ -35,13 +35,14 @@ export const NavBar = ({background, isPopup, setIsPopup}: navBarProps) => {
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
+            const key = e.key.toLowerCase()
             if (e.key === "ArrowDown") {
                 setSelectId((selectId + 1) % navBarItems.length)
                 console.log(selectId)
             } else if (e.key === "ArrowUp") {
                 setSelectId((selectId - 1 + navBarItems.length) % navBarItems.length)
                 console.log(selectId)
-            } else if (e.key === "d") {
+            } else if (key === "d") {
                 if (selectId === 5){
                     setIsPopup(false)
                 }
@@ -49,7 +50,7 @@ export const NavBar = ({background, isPopup, setIsPopup}: navBarProps) => {
                     router.push(navBarItems[selectId].route)
                 }
 
-            } else if (e.key === "s") {
+            } else if (key === "s") {
                 setIsPopup(false)
             }
         }
@@ -81,9 +82,9 @@ export const NavBar = ({background, isPopup, setIsPopup}: navBarProps) => {
                                         case "link":
                                             return <div key = {index} className='flex col items-center'>
                                                 {index == selectId? <Image
-                                                 className='w-2/20 h-1/20 justify-center' src = {arrow} alt = "arrow" width = {20} height = {20}/>
+                                                 className='flex w-2/20 h-1/20 justify-center' src = {arrow} alt = "arrow" width = {20} height = {20}/>
                                                   : <h1 className='pl-2'></h1>}
-                                                <Link  href = {`/${item.text.toLowerCase()}`} className='pl-1'>
+                                                <Link  href = {`/${item.text.toLowerCase()}`} className='pl-1 flex'>
                                             <Text text= {item.text} size="3xl" align="center"/>
                                             </Link>
                                             </div>

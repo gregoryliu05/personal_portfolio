@@ -21,6 +21,12 @@ const sizeMap: Record<string, string> = {
   // Add more as needed
 };
 
+const justifyMap: Record<string,string> = {
+  start: 'justify-start',
+  center: 'justify-center',
+  end: 'justify-end'
+}
+
 export const hMap: Record<string, string> = {
   "h-1/3": "h-1/3",
   "95": "h-[95%]"
@@ -31,7 +37,8 @@ export const hMap: Record<string, string> = {
 export const wMap: Record<string, string> = {
   "w-8/10": "w-8/10",
   "67": "w-[67%]",
-  '100': 'w-[100%]'
+  '100': 'w-[100%]',
+  '60': 'w-[60%]'
 
   // Add more as needed
 };
@@ -54,14 +61,16 @@ export type TextBoxProps = {
     height: string;
     width: string;
     size: string;
+    justify: string
 }
 
 export const Text = ({text, size, align}: TextProps) => {
   return <span className={clsx(
         sizeMap[size] ?? '',
         'font-emerald',
-        'text-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]',
+        'drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]',
         'text-pokemon',
+        'flex',
         align? alignMap[align]: ""
       )}>
     {text}
@@ -93,14 +102,14 @@ export const Header = () => {
 
 }
 
-export const TextBox = ({text, background, height, width, size}: TextBoxProps) => {
-    return (<div className='flex w-full h-full justify-center items-start'>
+export const TextBox = ({text, background, height, width, size, justify}: TextBoxProps) => {
+    return (<div className={clsx("flex", "w-full", "h-full",  "items-start", justifyMap[justify] ?? '')}>
             <section className= {clsx(
                 backgroundMap[background] ?? '',
                 "flex",
                 hMap[height] ?? '',
                 wMap[width] ?? '',
-                "justify-center",
+                'justify-center',
                 "items-center",
                 "rounded-sm",
                 "ring-1",
