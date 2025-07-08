@@ -13,7 +13,7 @@ import Link from 'next/link';
 
 import edifier from "./../../edifier.webp"
 import procurify from "./../../procurify.png"
-import sf from "./../../stayfresh.jpeg"
+import stayfresh from "./../../stayfresh.jpeg"
 import quantico from "./../../quantico.jpg"
 
 
@@ -32,7 +32,7 @@ export const workExp = [
     location: "richmond, bc",
     date: "january - april 2024",
     link: "stayfresh",
-    img: sf
+    img: stayfresh
   },
   { type: true,
     title: "software developer",
@@ -105,7 +105,7 @@ export default function ExperiencePage() {
 
     }
      else if (e.key === "d") {
-
+        router.push(`/experience/${workExp[selectId].link}`)
 
     }
   }
