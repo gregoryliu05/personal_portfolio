@@ -99,6 +99,12 @@ export default function ExperienceDetailPage({ params }: Props) {
   const [selectId, setSelectId] = useState(experiences.indexOf(slug))
 
   useEffect(() => {
+  router.prefetch('/experience/stayfresh');
+  router.prefetch('/experience/procurify');
+  router.prefetch('/experience/edifier');
+  }, []);
+
+  useEffect(() => {
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === "s") {
           router.push("/experience")

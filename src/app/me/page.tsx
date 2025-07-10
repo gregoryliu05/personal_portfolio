@@ -73,7 +73,7 @@ export default function MePage() {
 
         {/* BOTTOM TEXT */}
         <div className="flex w-9/10 h-3/10 mx-auto mt-4">
-            <TextBox text = "Iadjsfjas;kdlfj ;lkdja;lksfd" background="purple" height="95" width="100" size = "3xl" justify="left">
+            <TextBox text = "Iadjsfjas;kdlfj ;lkdja;lksfd" background="purple" height="95" width="100" size = "4xl" justify="left">
 
             </TextBox>
 

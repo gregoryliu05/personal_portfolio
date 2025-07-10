@@ -77,6 +77,11 @@ export default function ExperiencePage() {
   const router = useRouter()
   const [selectId, setSelectId] = useState(0)
 
+  useEffect(() => {
+  router.prefetch('/experience/stayfresh');
+  router.prefetch('/experience/procurify');
+  router.prefetch('/experience/edifier');
+  }, []);
 
 
   useEffect(() => {

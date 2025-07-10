@@ -7,8 +7,8 @@ export default function ResumeRedirectPage() {
   const router = useRouter();
 
   useEffect(() => {
-    window.open('https://drive.google.com/your-public-pdf-link-here', '_blank');
-    
+    window.open('https://drive.google.com/file/d/1ff_pGpTYcRDZ8pjpblRhg6xwYtWhwQch/view', '_blank');
+
     router.push('/');
   }, [router]);
 
