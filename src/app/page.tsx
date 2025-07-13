@@ -4,17 +4,25 @@ import clsx from 'clsx';
 
 import { useEffect, useState } from "react";
 import {Text, TextBox, backgroundMap, Header} from "../components/components"
+import { motion, AnimatePresence } from 'framer-motion'
+import { X } from 'lucide-react'
+
 
 import {NavBar} from "../components/navBar"
 
 export default function Home() {
   const [isPopup, setIsPopup] = useState(false)
   const [time, setTime] = useState(new Date().toLocaleTimeString())
+  const [showContact, setShowContact] = useState(false)
+  const handleCloseContact = () => setShowContact(false)
 
    useEffect(() => {
           const handleKeyDown = (e: KeyboardEvent) => {
               if (e.key === "Enter") {
                   setIsPopup(!isPopup)
+              }
+              if (e.key.toLowerCase() === "s" && showContact) {
+                setShowContact(false)
               }
           }
           window.addEventListener('keydown', handleKeyDown);
@@ -44,7 +52,7 @@ export default function Home() {
       <div className = "flex-col w-1/2 items-center">
         <section className= "flex h-1/8 justify-center">
         <span className="items-center">
-          <Text text = "Welcome to My Portfolio Site!" size = "4xl" align = "center"/>
+          <Text text = "Welcome to My Portfolio!" size = "4xl" align = "center"/>
           </span>
           </section>
 
@@ -58,7 +66,7 @@ export default function Home() {
 
       {/* Side Popup */}
       <div className="flex w-1/4 items-center justify-end">
-        {(isPopup? <NavBar background='purple' isPopup = {isPopup} setIsPopup = {setIsPopup}/>
+        {(isPopup? <NavBar background='purple' isPopup = {isPopup} setIsPopup = {setIsPopup} setShowContact={setShowContact}  />
         :
         <button className='flex w-1/2 items-center' onClick = {() => {
           (setIsPopup(true))
@@ -105,6 +113,39 @@ export default function Home() {
           <h1>website inspired by pokemon ruby/sapphire/emerald</h1>
         </div>
       </footer>
+
+      {/* CONTACT MODAL */}
+      <AnimatePresence>
+        {showContact && (
+          <motion.div
+            className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-[#FFFDFA] border-2 border-black/75 rounded-md w-4/5 max-w-md p-6 shadow-lg font-pokemon"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-2xl font-bold text-[#717171] ">Contact Me!</h2>
+                <button onClick={() => setShowContact(false)}>
+                  <X className="w-6 h-6 hover:text-red-500" />
+                </button>
+              </div>
+              <ul className="text-xl leading-relaxed space-y-2">
+                <li className='text-[#717171]'>📧 Email: <a href="mailto:gregoryliu123@email.com" className="underline text-[#717171]">gregoryliu123@email.com</a></li>
+                <li className='text-[#717171]'>💼 LinkedIn: <a href="https://linkedin.com/in/gregoryliu" className="underline text-[#717171]">/gregoryliu</a></li>
+                <li className='text-[#717171]'>💻 GitHub: <a href="https://github.com/gregoryliu05" className="underline text-[#717171]">/gregoryliu05</a></li>
+                <li className='text-[#717171]'>📱 Phone: (778) 238-8103</li>
+              </ul>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
 
 
