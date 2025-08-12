@@ -164,7 +164,7 @@ return (
             }
             className="absolute left-0"
           >
-            <Image src={leftArrow} alt="Left" width={20} height={20} />
+            <Image className = "hover:bob" src={leftArrow} alt="Left" width={20} height={20} />
           </button>
 
           {/* Square Indicators */}
@@ -196,7 +196,7 @@ return (
           {/* Right Arrow */}
           <button
             onClick={() => setIndex((prev) => (prev + 1) % info.length)}
-            className="absolute right-0"
+            className="absolute right-0 hover:bob"
           >
             <Image src={rightArrow} alt="Right" width={20} height={20} />
           </button>
@@ -260,7 +260,7 @@ return (
                 alt="arrow"
                 height={30}
                 width={30}
-                className="absolute bottom-4 right-4"
+                className="absolute bottom-4 right-4 bob"
               />
               </button>
 
@@ -271,9 +271,9 @@ return (
 
     </div>
     {/* Exit Button (Bottom Right) */}
-      <Link href="/" className="absolute bottom-4 right-4">
+      <Link href="/" className="absolute bottom-4 right-4 bg-[#766d95] h-[8%] w-[12%] rounded-sm flex border-2 border-black items-center justify-center pr-2 hover:bg-[#978ac1]">
             <h1 className='text-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]
-            text-pokemon text-3xl'>
+            text-[#FFFFFF] text-3xl'>
                 EXIT
                 </h1>
       </Link>

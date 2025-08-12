@@ -17,6 +17,8 @@ import stayfresh from "./../../stayfresh.jpeg"
 import quantico from "./../../quantico.jpg"
 
 
+// True IS NON EMPTY EXP
+// False is EMPTY EXP
 export const workExp = [
   { type: "header",
     title: "software engineer intern",
@@ -132,6 +134,8 @@ export default function ExperiencePage() {
       <section className='flex h-full w-[40%] items-start justify-end pt-20'>
       {/* box */}
         <Link href= {`/experience/${workExp[0].link}`}
+                        onMouseEnter={() => setSelectId(0)}
+                        onFocus={() => setSelectId(0)}
         className={clsx('flex flex-col justify-end w-[80%] h-[48.96%] border-2 rounded-lg pb-2', selectId == 0 ? "border-[#fb702e] bg-[#79D1ed]": "border-black bg-[#3693e2]")}>
           <section className='flex flex-row'>
             <div className='ml-1 w-[21%]'>
@@ -156,7 +160,9 @@ export default function ExperiencePage() {
         {workExp.map((item, index) => {
                 switch (item.type) {
                   case true:
-                    return <Link key = {index} className= {clsx('flex flex-row h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center',
+                    return <Link key = {index}
+                    onMouseEnter={() => setSelectId(index)}
+                    onFocus={() => setSelectId(index)} className= {clsx('flex flex-row h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center',
                       index == selectId ? "border-[#fb702e] bg-[#79D1ed]": "border-black bg-[#3693e2]"
 
                     )}
@@ -205,7 +211,7 @@ export default function ExperiencePage() {
 
          {/* Rectangular Pill */}
 
-        <Link  href = {`/`} className="bg-[#6D5BA8] h-[66%] w-[66%] rounded-sm flex border-2 border-black items-center justify-center pr-2">
+        <Link  href = {`/`} className="bg-[#766d95] h-[66%] w-[66%] rounded-sm flex border-2 border-black items-center justify-center pr-2 hover:bg-[#978ac1]">
         <h1 className='text-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]
             text-white text-3xl'>
                 EXIT

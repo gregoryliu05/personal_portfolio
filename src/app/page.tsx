@@ -76,10 +76,13 @@ export default function Home() {
       <div className="flex w-1/4 items-center justify-end">
         {(isPopup? <NavBar background='purple' isPopup = {isPopup} setIsPopup = {setIsPopup} setShowContact={setShowContact}  />
         :
-        <button className='flex w-1/2 items-center' onClick = {() => {
+        <button className='flex w-1/2 items-center' onMouseEnter = {() => {
           (setIsPopup(true))
-        }}>
-        <Text text = "press (START) or click here for more about me" size = "2xl"/>
+
+        }}
+        onFocus = {() => {
+          (setIsPopup(true))}}>
+        <Text text = "press (START) or hover here for more about me" size = "2xl"/>
         </button>
         )}
       </div>
@@ -108,7 +111,7 @@ export default function Home() {
                                   text-shadow-[0_2px_1px_rgb(0_0_0_/_0.20)]
                                   text-[#FFBC61]
                                   text-2xl' > Optional Controls:</h1>
-                             <Text text = '(S) = A | (D) = B | (ENTER) = START| ARROW KEYS to navigate' size = "lg" align = "left"/>
+                             <Text text = '| (S) = A | (D) = B | (ENTER) = START | ARROW KEYS to navigate |' size = "lg" align = "left"/>
                              </span>
                              <h1>
                              </h1>
@@ -118,7 +121,10 @@ export default function Home() {
           </div>
         <div className="flex w-1/2 justify-end items-end">
            {/* <image></image> */}
-          <h1>website inspired by pokemon ruby/sapphire/emerald</h1>
+          <h1 className='font-emerald
+                                  text-shadow-[0_2px_1px_rgb(0_0_0_/_0.20)]
+                                  text-[#717171]
+                                  text-l mr-1' >website inspired by pokemon ruby/sapphire/emerald </h1>
         </div>
       </footer>
 

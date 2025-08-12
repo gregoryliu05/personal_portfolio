@@ -1,7 +1,7 @@
 'use client'
 
 import clsx from 'clsx';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Text, TextBox, backgroundMap, TextBoxProps } from "./components";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -16,17 +16,18 @@ type navBarProps = {
 }
 
 const navBarItems = [
-    { text: "EXPERIENCE", type: "link", route: "/experience" },
-    { text: "ME", type: "link", route: "/me" },
-    { text: "RESUME", type: "link", route: "/resume" },
-    { text: "PROJECTS", type: "link", route: "/projects" },
-    { text: "CONTACT", type: "modal", route: "contact" },
-    { text: "EXIT", type: "button", route: "/" },
+    { text: "EXPERIENCE", type: "link", route: "/experience" , index: 0},
+    { text: "ME", type: "link", route: "/me", index: 1},
+    { text: "RESUME", type: "link", route: "/resume", index: 2},
+    { text: "PROJECTS", type: "link", route: "/projects", index: 3},
+    { text: "CONTACT", type: "modal", route: "contact", index: 4},
+    { text: "EXIT", type: "button", route: "/", index: 5},
 ]
 
 export const NavBar = ({ background, isPopup, setIsPopup, setShowContact }: navBarProps) => {
     const [selectId, setSelectId] = useState(0)
     const router = useRouter();
+    const textRef = useRef(null);
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -52,7 +53,7 @@ export const NavBar = ({ background, isPopup, setIsPopup, setShowContact }: navB
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [selectId, router])
+    }, [router, setIsPopup, setShowContact, selectId])
 
     return (
         <div className='flex w-9/10 h-8/10 justify-end items-center pr-2'>
@@ -73,7 +74,11 @@ export const NavBar = ({ background, isPopup, setIsPopup, setShowContact }: navB
                         {navBarItems.map((item, index) => {
                             const isSelected = index === selectId;
                             return (
-                                <div key={index} className='flex col items-center'>
+                                <div key={index}
+                                onMouseEnter={() => setSelectId(index)}
+                                onFocus={() => setSelectId(index)}
+
+                                className='flex col items-center'>
                                     {isSelected ? (
                                         <Image className='flex w-2/20 h-1/20 justify-center' src={arrow} alt="arrow" width={20} height={20} />
                                     ) : (
