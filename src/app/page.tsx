@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import {Text, TextBox, backgroundMap, Header} from "../components/components"
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
+import me from "./../characterme.png"
+import Image from 'next/image';
 
 
 import {NavBar} from "../components/navBar"
@@ -56,8 +58,14 @@ export default function Home() {
           </span>
           </section>
 
-        {/* <image></image> */}
-        <h1 className="flex h-4/9 justify-center"> PUT IMAGE HERE </h1>
+       <Image
+          src={me}
+          alt="me"
+          width={1170}
+          height={1562}
+          className="w-full h-auto max-h-80 object-contain mx-auto"
+        />
+
 
         <section className="flex h-3/8 w-full justify-center">
         <TextBox text = "Hi! My Name is Greg. Nice to meet you!" background = "green" height='h-1/3' width='w-8/10' size = "2xl" justify='center'/>
@@ -137,9 +145,9 @@ export default function Home() {
                 </button>
               </div>
               <ul className="text-xl leading-relaxed space-y-2">
-                <li className='text-[#717171]'>📧 Email: <a href="mailto:gregoryliu123@email.com" className="underline text-[#717171]">gregoryliu123@email.com</a></li>
-                <li className='text-[#717171]'>💼 LinkedIn: <a href="https://linkedin.com/in/gregoryliu" className="underline text-[#717171]">/gregoryliu</a></li>
-                <li className='text-[#717171]'>💻 GitHub: <a href="https://github.com/gregoryliu05" className="underline text-[#717171]">/gregoryliu05</a></li>
+                <li className='text-[#717171]'>📧 Email: <a href="mailto:gregoryliu123@email.com" target = "_blank" className="underline text-[#717171]">gregoryliu123@email.com</a></li>
+                <li className='text-[#717171]'>💼 LinkedIn: <a href="https://linkedin.com/in/gregoryliu" target = "_blank" className="underline text-[#717171]">/gregoryliu</a></li>
+                <li className='text-[#717171]'>💻 GitHub: <a href="https://github.com/gregoryliu05" target = "_blank" className="underline text-[#717171]">/gregoryliu05</a></li>
                 <li className='text-[#717171]'>📱 Phone: (778) 238-8103</li>
               </ul>
             </motion.div>

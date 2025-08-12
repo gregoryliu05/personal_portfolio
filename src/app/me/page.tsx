@@ -11,6 +11,12 @@ import redsqr from "./../../Redsqr.png"
 import redarrow from "./../../redarrow.png"
 import leftArrow from "./../../leftArrow.png"
 import rightArrow from "./../../arrow.png"
+import me from "./../../me.jpg"
+import mewtwo from "./../../mewtwo.jpg"
+import minecraft from "./../../minecraft2.jpg"
+import mahjong from "./../../mahjong.jpg"
+import kid from "./../../kid.jpg"
+import night from "./../../nights.jpg"
 import { useRouter } from 'next/navigation'
 import Link from "next/link"
 
@@ -25,7 +31,7 @@ export type profileTextProps = {
 }
 
 const text = [
-    "I am a detail-oriented software engineer who loves to solve problems and strives to make a positive impact on the world!",
+    "Hello! this is a bit more about me. I am a detail-oriented software engineer who loves to solve problems and strives to make a positive impact on the world!        (Click the red arrow or press D for more)",
     "This fall, I’ll be joining Procurify as a Software Engineering Intern, where I’ll be working on their spend management system and gaining hands-on experience in building scalable, impactful tools.",
     "Outside of work and school, you can usually find me hooping, working out, catching an NBA game, exploring new food spots around Vancouver, or playing Pokémon ROM hacks in my downtime!"
 ]
@@ -33,32 +39,44 @@ const text = [
 const info = [
     {title1: "Name",
         text1: "Greg Liu",
-        title2: "",
+        title2: "I am a ...",
         text2: "Software Engineer",
         title3: "School",
         text3: "CS + BUSINESS at UBC",
         title4: "Grad",
-        text4: "2027"
+        text4: "2027",
+        img: mewtwo,
+        h: 4032,
+        w: 3024,
+        caption: "pokemon center in shibuya!"
 
     },
     {
      title1: "I'm located in...",
         text1: "Richmond, BC",
         title2: "Currently working on...",
-        text2: "A crypto arbitrage trading bot 🤖",
+        text2: "Backend development",
         title3: "NBA Team",
         text3: "LA Clippers",
         title4: "Fav Candy",
-        text4: "Icebreakers"
+        text4: "Icebreakers",
+        img: kid,
+        h: 2048,
+        w: 1536,
+        caption: "mini me"
     },
     {title1: "Favourite Hobby",
-        text1: "Playing Basketball 🏀",
-        title2: "Current favourite artist",
+        text1: "Basketball 🏀",
+        title2: "Current favourite artist 🎵",
         text2: "Frank Ocean or Jay Chou",
         title3: "My go-to food spot",
-        text3: "Grandma Liu Hot Pot 🥡",
-        title4: "Currently playing",
-        text4: "Pokemon Radical Red"
+        text3: "Grandma Liu Hot Pot ",
+        title4: "Currently playing 🕹️",
+        text4: "Pokemon Radical Red",
+        img: night,
+        h: 656,
+        w: 1166,
+        caption: "northern lights!"
     }
 ]
 
@@ -192,7 +210,21 @@ return (
       </div>
 
       {/* RIGHT SIDE IMAGE */}
-      <div className="flex h-full w-4/10">image</div>
+        <div className="flex flex-col items-center justify-center w-[40%]">
+  <Image
+    src={info[index].img}
+    width={info[index].w}
+    height={info[index].h}
+    alt="image"
+    className="w-9/10 h-auto max-h-87 object-contain"
+  />
+  <p className="mt-2 text-sm text-gray-600 text-center">
+    {info[index].caption}
+  </p>
+</div>
+
+
+
     </div>
 
     {/* BOTTOM TEXT */}

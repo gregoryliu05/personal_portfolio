@@ -18,8 +18,8 @@ type navBarProps = {
 const navBarItems = [
     { text: "EXPERIENCE", type: "link", route: "/experience" },
     { text: "ME", type: "link", route: "/me" },
-    { text: "PROJECTS", type: "link", route: "/projects" },
     { text: "RESUME", type: "link", route: "/resume" },
+    { text: "PROJECTS", type: "link", route: "/projects" },
     { text: "CONTACT", type: "modal", route: "contact" },
     { text: "EXIT", type: "button", route: "/" },
 ]
