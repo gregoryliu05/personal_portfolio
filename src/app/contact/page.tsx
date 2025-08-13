@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Header } from '@/components/components'
 import linkedinIcon from './../../linkedin.png' // replace with real paths
 import githubIcon from './../../gh.png'
 import emailIcon from './../../email.jpg'

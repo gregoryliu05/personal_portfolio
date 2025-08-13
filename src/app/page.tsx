@@ -14,9 +14,7 @@ import {NavBar} from "../components/navBar"
 
 export default function Home() {
   const [isPopup, setIsPopup] = useState(false)
-  const [time, setTime] = useState(new Date().toLocaleTimeString())
   const [showContact, setShowContact] = useState(false)
-  const handleCloseContact = () => setShowContact(false)
 
    useEffect(() => {
           const handleKeyDown = (e: KeyboardEvent) => {
@@ -31,13 +29,6 @@ export default function Home() {
           return () => window.removeEventListener('keydown', handleKeyDown);
       }, [isPopup])
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTime(new Date().toLocaleTimeString())
-    }, 1000)
-
-    return () => clearInterval(intervalId);
-  }, [])
 
   // my home page
   return (

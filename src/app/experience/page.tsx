@@ -2,7 +2,7 @@
 
 import {useState, useEffect} from 'react'
 
-import {Header, TextBox, Text, hMap, wMap} from "../../components/components"
+import {Header} from "../../components/components"
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
@@ -83,7 +83,7 @@ export default function ExperiencePage() {
   router.prefetch('/experience/stayfresh');
   router.prefetch('/experience/procurify');
   router.prefetch('/experience/edifier');
-  }, []);
+  }, [router]);
 
 
   useEffect(() => {

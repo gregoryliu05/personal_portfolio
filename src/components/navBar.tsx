@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { useEffect, useState, useRef } from "react";
-import { Text, TextBox, backgroundMap, TextBoxProps } from "./components";
+import { Text, backgroundMap } from "./components";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -24,10 +24,9 @@ const navBarItems = [
     { text: "EXIT", type: "button", route: "/", index: 5},
 ]
 
-export const NavBar = ({ background, isPopup, setIsPopup, setShowContact }: navBarProps) => {
+export const NavBar = ({ background, setIsPopup, setShowContact }: navBarProps) => {
     const [selectId, setSelectId] = useState(0)
     const router = useRouter();
-    const textRef = useRef(null);
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {

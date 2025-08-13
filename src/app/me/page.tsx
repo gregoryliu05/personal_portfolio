@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-import { Header, TextBox, Text } from "@/components/components"
+import { Header, Text } from "@/components/components"
 import clsx from "clsx"
 
 import rectangle from "./../../Rectangle.png"
@@ -11,17 +11,14 @@ import redsqr from "./../../Redsqr.png"
 import redarrow from "./../../redarrow.png"
 import leftArrow from "./../../leftArrow.png"
 import rightArrow from "./../../arrow.png"
-import me from "./../../me.jpg"
 import mewtwo from "./../../mewtwo.jpg"
-import minecraft from "./../../minecraft2.jpg"
-import mahjong from "./../../mahjong.jpg"
 import kid from "./../../kid.jpg"
 import night from "./../../nights.jpg"
 import { useRouter } from 'next/navigation'
 import Link from "next/link"
 
 
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
 
 
 export type profileTextProps = {
@@ -139,7 +136,7 @@ export default function MePage() {
 
         window.addEventListener('keydown', handleKey)
         return () => window.removeEventListener('keydown', handleKey);
-    }, [index])
+    }, [index, router])
 
 
 

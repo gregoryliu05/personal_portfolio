@@ -1,6 +1,5 @@
 'use client'
 
-import { use } from 'react'
 import { useParams } from 'next/navigation'
 import { Text } from '@/components/components'
 import Link from 'next/link'
@@ -89,11 +88,11 @@ const experienceData = {
   }
 }
 
-export default function ExperienceDetailPage({ params }: Props) {
+export default function ExperienceDetailPage() {
 //   const {slug}: string = use<string>(params);
   const { slug } = useParams() as { slug: string };
   //
-  const [data, setData] = useState(experienceData[slug as keyof typeof experienceData]);
+  const data = experienceData[slug as keyof typeof experienceData];
   const router = useRouter();
 
   const [selectId, setSelectId] = useState(experiences.indexOf(slug))
@@ -102,7 +101,7 @@ export default function ExperienceDetailPage({ params }: Props) {
   router.prefetch('/experience/stayfresh');
   router.prefetch('/experience/procurify');
   router.prefetch('/experience/edifier');
-  }, []);
+  }, [router]);
 
   useEffect(() => {
       const handleKeyDown = (e: KeyboardEvent) => {
