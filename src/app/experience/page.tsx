@@ -19,7 +19,7 @@ import quantico from "./../../quantico.jpg"
 
 // True IS NON EMPTY EXP
 // False is EMPTY EXP
-export const workExp = [
+const workExp = [
   { type: "header",
     title: "software engineer intern",
     company: "procurify",
