@@ -75,33 +75,32 @@ export const NavBar = ({ background, isPopup, setIsPopup, setShowContact }: navB
                             const isSelected = index === selectId;
                             return (
                                 <div key={index}
-                                onMouseEnter={() => setSelectId(index)}
-                                onFocus={() => setSelectId(index)}
-
-                                className='flex col items-center'>
+                                    onMouseEnter={() => setSelectId(index)}
+                                    onFocus={() => setSelectId(index)}
+                                    className='flex col items-center'>
                                     {isSelected ? (
                                         <Image className='flex w-2/20 h-1/20 justify-center' src={arrow} alt="arrow" width={20} height={20} />
-                                    ) : (
+                                    ) :
+                                    (
                                         <h1 className='pl-2'></h1>
                                     )}
-                                    {item.type === "button" ? (
-                                        <button onClick={() => setIsPopup(false)} className='flex items-center pl-1'>
-                                            <Text text={item.text} size="3xl" align="center" />
+
+                                     {/* text area that can wrap */}
+                                    {item.type === 'button' ? (
+                                        <button onClick={() => setIsPopup(false)} className="block text-left grow basis-0 min-w-0">
+                                        <Text text={item.text} size="3xl" align="left" />
                                         </button>
-                                    ) : item.type === "modal" ? (
-                                        <button onClick={() => {
-                                            setShowContact(true);
-                                            setIsPopup(false);
-                                        }} className='flex items-center pl-1'>
-                                            <Text text={item.text} size="3xl" align="center" />
+                                    ) : item.type === 'modal' ? (
+                                        <button onClick={() => { setShowContact(true); setIsPopup(false); }} className="block text-left grow basis-0 min-w-0">
+                                        <Text text={item.text} size="3xl" align="left" />
                                         </button>
                                     ) : (
-                                        <Link href={item.route} className='pl-1 flex'>
-                                            <Text text={item.text} size="3xl" align="center" />
+                                        <Link href={item.route} className="block text-left grow basis-0 min-w-0">
+                                        <Text text={item.text} size="3xl" align="left" />
                                         </Link>
                                     )}
-                                </div>
-                            )
+                             </div>
+                        )
                         })}
                     </div>
                 </div>

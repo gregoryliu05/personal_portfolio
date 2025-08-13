@@ -85,14 +85,14 @@ export const ProfileText = ({ title, text} : profileTextProps) => {
         <div className="flex flex-row h-[20%] w-full mx-auto border-b-2 border-b-[#3e3e3e]">
                         <div className="flex flex-row w-1/2 h-full items-center gap-2 ml-2">
                             <Image  src = {rectangle} alt = "lol" className="h-30/100 w-3/100 text-left flex items-center" width={2} height={3}></Image>
-                            <h1 className="h-full w-8/10 text-left flex items-center font-emerald drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] text-black text-3xl">
+                            <h1 className="h-full w-8/10 text-left flex items-center font-emerald drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] text-black text-xl md:text-3xl">
                             {title}
                             </h1>
                             </div>
 
 
                         <div className="flex flex-row w-1/2 h-full items-center mr-2">
-                        <h1 className = "flex w-full h-full justify-end items-center font-emerald drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] text-black text-3xl">
+                        <h1 className = "flex w-full h-full justify-end items-center font-emerald drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] text-right text-black text-xl md:text-3xl">
                             {text}
                         </h1>
                         </div>

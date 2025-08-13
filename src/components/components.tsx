@@ -68,10 +68,11 @@ export type TextBoxProps = {
 export const Text = ({text, size, align}: TextProps) => {
   return <span className={clsx(
         sizeMap[size] ?? '',
-        'font-emerald',
-        'drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]',
-        'text-pokemon',
-        'flex',
+        'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]',
+         'block whitespace-normal break-words',
+        'text-[20px]',
+        sizeMap[size] ? `md:${sizeMap[size]}`: '',
+        sizeMap[size] ? `lg:${sizeMap[size]}`: '',
         align? alignMap[align]: ""
       )}>
     {text}

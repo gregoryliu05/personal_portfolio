@@ -92,7 +92,7 @@ export default function ProjectsPage() {
           {/* TOP TEXT BAR */}
           <div className='flex flex-row items-center w-[85%] mx-auto h-[10%] bg-[#ffe997] border-2 rounded-md justify-between px-2'>
             <Image src={leftArrow} alt="left" width={20} height={20} onClick={handleLeft} className='cursor-pointer' />
-            <h1 className='text-4xl text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]'>{current.title}</h1>
+            <h1 className='sm:text-md md:text-2xl lg:text-4xl text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]'>{current.title}</h1>
             <Image src={rightArrow} alt="right" width={20} height={20} onClick={handleRight} className='cursor-pointer' />
           </div>
 
@@ -119,7 +119,7 @@ export default function ProjectsPage() {
 
           {/* BOTTOM TEXT */}
           <div className='flex w-9/10 h-[30%] ml-auto bg-[#FFFFFF] border-[#878787] border-t-2 border-l-2 border-b-2 rounded-tl-lg rounded-bl-lg p-3'>
-            <p className='text-4xl'>{current.description}</p>
+            <p className='text-[17px] md:text-2xl lg:text-3xl'>{current.description}</p>
           </div>
         </div>
 

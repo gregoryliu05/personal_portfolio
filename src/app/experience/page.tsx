@@ -23,32 +23,32 @@ export const workExp = [
   { type: "header",
     title: "software engineer intern",
     company: "procurify",
-    location: "vancouver, bc",
-    date: "incoming fall 2025",
+    location: "vancouver",
+    date: "incoming sep 2025",
     link: "procurify",
     img: procurify
   },
   { type: true,
     title: "software developer intern",
     company: "stay fresh",
-    location: "richmond, bc",
-    date: "january - april 2024",
+    location: "vancouver",
+    date: "2024",
     link: "stayfresh",
     img: stayfresh
   },
   { type: true,
     title: "software developer",
-    company: "ubc quantico research",
-    location: "vancouver, bc",
-    date: "january 2025 - present",
+    company: "quantico",
+    location: "vancouver",
+    date: "present",
     link: "quantico",
     img: quantico
   },
   { type: true,
     title: "marketing/sales intern",
     company: "edifier",
-    location: "beijing, china",
-    date: "june - july 2023",
+    location: "beijing",
+    date: "2023",
     link: 'edifier',
     img: edifier
   },
@@ -68,7 +68,7 @@ type infoBoxProps = {
 
 const InfoBox = ({ text, className }: infoBoxProps) => {
   return (
-    <h1 className={clsx('text-2xl font-emerald text-white drop-shadow-[0_4px_2px_rgb(0_0_0_/_0.67)]', className)}>
+    <h1 className={clsx('text-sm md:text-2xl font-emerald text-white drop-shadow-[0_4px_2px_rgb(0_0_0_/_0.67)]', className)}>
       {text}
     </h1>
   );
@@ -131,12 +131,12 @@ export default function ExperiencePage() {
       <div className='h-800/1000 w-full flex flex-row pl-20 pr-20 pt-10 items-center justify-center'>
 
       {/* FIRST EXPERIENCE MAIN ONE */}
-      <section className='flex h-full w-[40%] items-start justify-end pt-20'>
+      <section className='flex h-full w-[60%] md:w-[40%] items-start justify-center pt-20'>
       {/* box */}
         <Link href= {`/experience/${workExp[0].link}`}
                         onMouseEnter={() => setSelectId(0)}
                         onFocus={() => setSelectId(0)}
-        className={clsx('flex flex-col justify-end w-[80%] h-[48.96%] border-2 rounded-lg pb-2', selectId == 0 ? "border-[#fb702e] bg-[#79D1ed]": "border-black bg-[#3693e2]")}>
+        className={clsx('flex flex-col justify-center w-[80%] h-[48.96%] border-2 rounded-lg pb-2', selectId == 0 ? "border-[#fb702e] bg-[#79D1ed]": "border-black bg-[#3693e2]")}>
           <section className='flex flex-row'>
             <div className='ml-1 w-[21%]'>
             <Image className='flex h-full justify-center rounded-full' src = {procurify} alt = "arrow" />
@@ -202,7 +202,23 @@ export default function ExperiencePage() {
 
       <div className='h-100/1000 w-full flex flex-row justify-start'>
       <div className='h-full flex flex-cols w-1/2 items-start justify-start pl-1'>
-      <TextBox text = "Choose an Experience to Learn More!" background='purple' height= "95" width='60' size = "3xl" justify='start'></TextBox>
+            <div className={clsx("flex", "w-full", "h-full",  "items-start", "justify-start")}>
+                        <section className= 'flex justify-center items-center rounded-sm ring-1 bg-[#766d95] ring-black/75 h-[95%] w-[60%] '
+                        >
+                            <section className= "flex bg-white w-97/100 h-9/10 rounded-sm inset-ring-2 inset-ring-whitesd">
+                                <span className='pl-3 pt-2'>
+                                <span className=
+                                        'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]block whitespace-normal break-words text-[17px] md:text-2xl lg:text-3xl justify-start'
+                                   >
+                                  Choose an Experience to Learn More!
+                                  </span>
+                                </span>
+                                <h1>
+                                </h1>
+                            </section>
+                        </section>
+                        </div>
+
           </div>
 
       <div className='flex flex-row h-full w-[50%] justify-end'>

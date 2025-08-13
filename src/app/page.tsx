@@ -53,8 +53,9 @@ export default function Home() {
       <div className="w-1/4"></div>
       <div className = "flex-col w-1/2 items-center">
         <section className= "flex h-1/8 justify-center">
-        <span className="items-center">
-          <Text text = "Welcome to My Portfolio!" size = "4xl" align = "center"/>
+        <span className="items-center justify-center">
+          <h1 className='font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]
+         block whitespace-normal break-words text-2xl md:text-4xl justify-center '> Welcome to my Portfolio!</h1>
           </span>
           </section>
 
@@ -89,15 +90,14 @@ export default function Home() {
 
       </div>
 
-      {/* TODO  */}
       {/* Footer */ }
-      <footer className= "flex justify-center h-1/10">
+      <footer className= "flex justify-center h-1/10 md:h-1/10">
         <div className="flex w-full h-full justify-start">
          <div className='flex w-9/10 justify-start items-start pl-1'>
                      <section className= {clsx(
                          backgroundMap["purple"] ?? '',
                          "flex",
-                         "w-6/10",
+                         "w-full md:w-6/10",
                          "h-10/10",
                          "justify-center",
                          "items-center",
@@ -111,7 +111,13 @@ export default function Home() {
                                   text-shadow-[0_2px_1px_rgb(0_0_0_/_0.20)]
                                   text-[#FFBC61]
                                   text-2xl' > Optional Controls:</h1>
-                             <Text text = '| (S) = A | (D) = B | (ENTER) = START | ARROW KEYS to navigate |' size = "lg" align = "left"/>
+                                <div className='block text-left grow basis-0 min-w-0'>
+                             <span className='font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-[13px] md:text-lg
+                             justify-left'
+                                   >
+                                 | (S) = A | (D) = B | (ENTER) = START | ARROW KEYS to navigate |
+                               </span>
+                             </div>
                              </span>
                              <h1>
                              </h1>
