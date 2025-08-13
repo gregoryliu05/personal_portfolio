@@ -77,7 +77,7 @@ const info = [
     }
 ]
 
-export const ProfileText = ({ title, text} : profileTextProps) => {
+const ProfileText = ({ title, text} : profileTextProps) => {
     return (
         <div className="flex flex-row h-[20%] w-full mx-auto border-b-2 border-b-[#3e3e3e]">
                         <div className="flex flex-row w-1/2 h-full items-center gap-2 ml-2">
