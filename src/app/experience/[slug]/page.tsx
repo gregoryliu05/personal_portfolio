@@ -23,9 +23,6 @@ const imgTitle: Record<string, StaticImageData> = {
 }
 
 
-type Props = {
-  params: {slug : string}
-}
 
 import { Header } from "@/components/components"
 

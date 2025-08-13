@@ -122,7 +122,7 @@ export default function MePage() {
         window.addEventListener('keydown', handleKey)
         return () => window.removeEventListener('keydown', handleKey);
 
-    },[textIndex])
+    },[textIndex, router])
 
     useEffect(() => {
         const handleKey = (e:KeyboardEvent) => {
