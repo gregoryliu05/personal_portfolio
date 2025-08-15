@@ -206,9 +206,9 @@ export default function ExperiencePage() {
                         <section className= 'flex justify-center items-center rounded-sm ring-1 bg-[#766d95] ring-black/75 h-[95%] w-[60%] '
                         >
                             <section className= "flex bg-white w-98/100 h-92/100 rounded-sm inset-ring-2 inset-ring-whitesd">
-                                <span className='ml-1 pt-2'>
+                                <span className='ml-2 pt-2'>
                                 <span className=
-                                        'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-[17px]  md:text-[20px] lg:text-[24px] justify-start'
+                                        'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-[17px]  md:text-[20px] lg:text-[23px] justify-start'
                                    >
                                   Choose an Experience to Learn More!
                                   </span>
