@@ -30,7 +30,7 @@ export type profileTextProps = {
 const text = [
     "Hello! this is a bit more about me. I am a detail-oriented software engineer who loves to solve problems and strives to make a positive impact on the world!        (Click the red arrow or press D for more)",
     "This fall, I’ll be joining Procurify as a Software Engineering Intern, where I’ll be working on their spend management system and gaining hands-on experience in building scalable, impactful tools.",
-    "Outside of work and school, you can usually find me hooping, working out, catching an NBA game, exploring new food spots around Vancouver, or playing Pokémon ROM hacks in my downtime!"
+    "Outside of work and school, you can usually find me hooping, working out, catching an NBA game, exploring new food spots around Van, or playing retro Pokémon games in my downtime!"
 ]
 
 const info = [
@@ -64,7 +64,7 @@ const info = [
     },
     {title1: "Favourite Hobby",
         text1: "Basketball 🏀",
-        title2: "Current favourite artist 🎵",
+        title2: "Favourite artist 🎵",
         text2: "Frank Ocean or Jay Chou",
         title3: "My go-to food spot",
         text3: "Grandma Liu Hot Pot ",
@@ -82,14 +82,14 @@ const ProfileText = ({ title, text} : profileTextProps) => {
         <div className="flex flex-row h-[20%] w-full mx-auto border-b-2 border-b-[#3e3e3e]">
                         <div className="flex flex-row w-1/2 h-full items-center gap-2 ml-2">
                             <Image  src = {rectangle} alt = "lol" className="h-30/100 w-3/100 text-left flex items-center" width={2} height={3}></Image>
-                            <h1 className="h-full w-8/10 text-left flex items-center font-emerald drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] text-black text-xl md:text-3xl">
+                            <h1 className="h-full w-8/10 text-left flex items-center font-emerald drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] text-black text-lg sm:text-xl md:text-2xl lg:text-3xl">
                             {title}
                             </h1>
                             </div>
 
 
                         <div className="flex flex-row w-1/2 h-full items-center mr-2">
-                        <h1 className = "flex w-full h-full justify-end items-center font-emerald drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] text-right text-black text-xl md:text-3xl">
+                        <h1 className = "flex w-full h-full justify-end items-center font-emerald drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] text-right text-black text-lg sm:text-xl md:text-2xl lg:text-3xl">
                             {text}
                         </h1>
                         </div>
@@ -242,7 +242,10 @@ return (
         >
           <section className="relative flex flex-row bg-white w-[97%] h-[90%] rounded-sm">
             <span className="pl-3 pt-2 w-full h-[95%]">
-              <Text text={text[textIndex]} size="4xl" align="left" />
+              <span className=
+                      'justify-left font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-[22px] md:text-3xl lg:text-4xl'>
+                  {text[textIndex]}
+                </span>
             </span>
             <button onClick = {() => {
                 if (textIndex < 2) {

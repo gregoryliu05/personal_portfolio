@@ -73,7 +73,7 @@ const experienceData = {
   },
   edifier: {
     company: "Edifier",
-    title: 'Marketing/Sales Intern',
+    title: 'Marketing & Sales Intern',
     date: 'June - July 2023',
     description: "Edifier's sales/marketing team",
     techstack: "Javascript, Node.js, React Native, Express",
@@ -149,18 +149,18 @@ export default function ExperienceDetailPage() {
                 {/* LEFT SIDE IMAGE/TITLE */}
                 <div className='flex w-40/100 h-full items-start justify-end mt-25'>
                     <div className='flex flex-col w-65/100 h-8/10 items-center border-2 rounded-sm border-black-300/25'>
-                            <div className='justify-center items-center mt-4'>
-                                 <Text text = {data.date} size = "2xl" align='center'></Text>
+                            <div className='justify-center ml-1 items-center mt-4'>
+                                 <Text text = {data.date} size = "2xl" align='center' c = "text-center"></Text>
                             </div>
                             <div className='pt-3 w-6/10'>
                             <Image src = {image} alt = "image" className='justify-center border-2 border-black-300/25'/>
                             </div>
-                            <div className='justify-center items-center'>
-                                 <Text text = {data.title} size = "2xl" align='center'></Text>
+                            <div className='justify-center ml-1 items-center'>
+                                 <Text text = {data.title} size = "2xl" align='center' c = "text-center"></Text>
                             </div>
-                            <div className='justify-center items-center'>
+                            <div className='justify-center ml-1 items-center'>
 
-                            <Text text = {data.company} size = "2xl" align='center'></Text>
+                            <Text text = {data.company} size = "2xl" align='center' c = "text-center"></Text>
                             </div>
                     </div>
                 </div>

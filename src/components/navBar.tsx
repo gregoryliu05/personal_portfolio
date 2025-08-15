@@ -81,21 +81,31 @@ export const NavBar = ({ background, setIsPopup, setShowContact }: navBarProps) 
                                         <Image className='flex w-2/20 h-1/20 justify-center' src={arrow} alt="arrow" width={20} height={20} />
                                     ) :
                                     (
-                                        <h1 className='pl-2'></h1>
+                                        <h1 className='pl-1'></h1>
                                     )}
 
                                      {/* text area that can wrap */}
                                     {item.type === 'button' ? (
                                         <button onClick={() => setIsPopup(false)} className="block text-left grow basis-0 min-w-0">
-                                        <Text text={item.text} size="3xl" align="left" />
+                                        {/* <Text text={item.text} size="3xl" align="left"/> */}
+                                        <span className=
+                                        'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-xl md:text-2xl lg:text-3xl justify-start'>
+                                            {item.text}
+                                        </span>
                                         </button>
                                     ) : item.type === 'modal' ? (
                                         <button onClick={() => { setShowContact(true); setIsPopup(false); }} className="block text-left grow basis-0 min-w-0">
-                                        <Text text={item.text} size="3xl" align="left" />
+                                        <span className=
+                                        'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-xl md:text-2xl lg:text-3xl justify-start'>
+                                            {item.text}
+                                        </span>
                                         </button>
                                     ) : (
                                         <Link href={item.route} className="block text-left grow basis-0 min-w-0">
-                                        <Text text={item.text} size="3xl" align="left" />
+                                        <span className=
+                                        'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-xl md:text-2xl lg:text-3xl justify-start'>
+                                            {item.text}
+                                        </span>
                                         </Link>
                                     )}
                              </div>

@@ -68,7 +68,7 @@ type infoBoxProps = {
 
 const InfoBox = ({ text, className }: infoBoxProps) => {
   return (
-    <h1 className={clsx('text-sm md:text-2xl font-emerald text-white drop-shadow-[0_4px_2px_rgb(0_0_0_/_0.67)]', className)}>
+    <h1 className={clsx('text-sm md:text-xl lg:text-2xl font-emerald text-white drop-shadow-[0_4px_2px_rgb(0_0_0_/_0.67)]', className)}>
       {text}
     </h1>
   );
@@ -205,10 +205,10 @@ export default function ExperiencePage() {
             <div className={clsx("flex", "w-full", "h-full",  "items-start", "justify-start")}>
                         <section className= 'flex justify-center items-center rounded-sm ring-1 bg-[#766d95] ring-black/75 h-[95%] w-[60%] '
                         >
-                            <section className= "flex bg-white w-97/100 h-9/10 rounded-sm inset-ring-2 inset-ring-whitesd">
-                                <span className='pl-3 pt-2'>
+                            <section className= "flex bg-white w-98/100 h-92/100 rounded-sm inset-ring-2 inset-ring-whitesd">
+                                <span className='ml-1 pt-2'>
                                 <span className=
-                                        'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]block whitespace-normal break-words text-[17px] md:text-2xl lg:text-3xl justify-start'
+                                        'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-[17px]  md:text-[20px] lg:text-[24px] justify-start'
                                    >
                                   Choose an Experience to Learn More!
                                   </span>
@@ -227,9 +227,9 @@ export default function ExperiencePage() {
 
          {/* Rectangular Pill */}
 
-        <Link  href = {`/`} className="bg-[#766d95] h-[66%] w-[66%] rounded-sm flex border-2 border-black items-center justify-center pr-2 hover:bg-[#978ac1]">
+        <Link  href = {`/`} className="bg-[#766d95] h-[66%] w-[66%] flex rounded-sm border-2 border-black items-center justify-center pr-2 hover:bg-[#978ac1]">
         <h1 className='text-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]
-            text-white text-3xl'>
+            text-white text-3xl text-center ml-2'>
                 EXIT
                 </h1>
         </Link>

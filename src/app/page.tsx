@@ -40,9 +40,11 @@ export default function Home() {
 
       {/* MAIN BODY PART */}
       <div className= "flex h-8/10">
+
+      {/* LEFT SPACE */}
+      <div className="sm:w-15/100 md:w-1/4"></div>
       {/* CENTER COMPONENT*/}
-      <div className="w-1/4"></div>
-      <div className = "flex-col w-1/2 items-center">
+      <div className = "flex-col w-55/100 md:w-1/2 items-center">
         <section className= "flex h-1/8 justify-center">
         <span className="items-center justify-center">
           <h1 className='font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]
@@ -65,7 +67,7 @@ export default function Home() {
       </div>
 
       {/* Side Popup */}
-      <div className="flex w-1/4 items-center justify-end">
+      <div className="flex w-45/100 md:w-1/3 lg:w-1/4 items-center justify-end">
         {(isPopup? <NavBar background='purple' isPopup = {isPopup} setIsPopup = {setIsPopup} setShowContact={setShowContact}  />
         :
         <button className='flex w-1/2 items-center' onMouseEnter = {() => {
@@ -151,7 +153,7 @@ export default function Home() {
                 <li className='text-[#717171]'>📧 Email: <a href="mailto:gregoryliu123@email.com" target = "_blank" className="underline text-[#717171]">gregoryliu123@email.com</a></li>
                 <li className='text-[#717171]'>💼 LinkedIn: <a href="https://linkedin.com/in/gregoryliu" target = "_blank" className="underline text-[#717171]">/gregoryliu</a></li>
                 <li className='text-[#717171]'>💻 GitHub: <a href="https://github.com/gregoryliu05" target = "_blank" className="underline text-[#717171]">/gregoryliu05</a></li>
-                <li className='text-[#717171]'>📱 Phone: (778) 238-8103</li>
+                <li className='text-[#717171]'>📱 Phone: (778)-238-8103</li>
               </ul>
             </motion.div>
           </motion.div>

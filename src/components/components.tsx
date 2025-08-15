@@ -8,6 +8,7 @@ export type TextProps = {
   text: string;
   size: string;
   align?: string;
+  c?: string;
 };
 
 const sizeMap: Record<string, string> = {
@@ -65,15 +66,17 @@ export type TextBoxProps = {
     justify: string
 }
 
-export const Text = ({text, size, align}: TextProps) => {
+export const Text = ({text, size, align, c}: TextProps) => {
   return <span className={clsx(
         sizeMap[size] ?? '',
         'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]',
          'block whitespace-normal break-words',
+         'xs:text-[14px]',
         'text-[20px]',
         sizeMap[size] ? `md:${sizeMap[size]}`: '',
         sizeMap[size] ? `lg:${sizeMap[size]}`: '',
-        align? alignMap[align]: ""
+        align? alignMap[align]: "",
+        c? c: ""
       )}>
     {text}
   </span>
