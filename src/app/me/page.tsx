@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-import { Header, Text } from "@/components/components"
+import { Header } from "@/components/components"
 import clsx from "clsx"
 
 import rectangle from "./../../Rectangle.png"

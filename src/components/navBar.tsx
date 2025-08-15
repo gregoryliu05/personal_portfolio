@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import { useEffect, useState } from "react";
-import { Text, backgroundMap } from "./components";
+import {backgroundMap } from "./components";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
