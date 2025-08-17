@@ -85,7 +85,7 @@ export default function Home() {
 
       {/* Footer */ }
       <footer className= "flex justify-center h-1/10 md:h-1/10">
-        <div className="flex w-full h-full justify-start">
+        <div className="flex w-9/10 h-full justify-start">
          <div className='flex w-9/10 justify-start items-start pl-1'>
                      <section className= {clsx(
                          backgroundMap["purple"] ?? '',
@@ -103,9 +103,11 @@ export default function Home() {
                                 <h1 className='font-emerald
                                   text-shadow-[0_2px_1px_rgb(0_0_0_/_0.20)]
                                   text-[#FFBC61]
-                                  text-2xl' > Optional Controls:</h1>
+                                  text-lg
+                                  md:text-xl
+                                  lg:text-2xl' > Optional Controls:</h1>
                                 <div className='block text-left grow basis-0 min-w-0'>
-                             <span className='font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-[13px] md:text-lg
+                             <span className='font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-[12px] md:text-md lg:text-xl
                              justify-left'
                                    >
                                  | (S) = A | (D) = B | (ENTER) = START | ARROW KEYS to navigate |

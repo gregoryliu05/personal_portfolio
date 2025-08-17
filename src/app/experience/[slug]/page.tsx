@@ -1,14 +1,10 @@
 'use client'
 
-import { useParams } from 'next/navigation'
-import { Text } from '@/components/components'
+import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Image, { StaticImageData } from 'next/image'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-
-
-
+import { Header, Text } from '@/components/components'
 
 import edifier from "./../../../edifier.webp"
 import procurify from "./../../../procurify.png"
@@ -16,23 +12,13 @@ import stayfresh from "./../../../stayfresh.jpeg"
 import quantico from "./../../../quantico.jpg"
 
 const imgTitle: Record<string, StaticImageData> = {
-    edifier,
-    procurify,
-    stayfresh,
-    quantico,
+  edifier,
+  procurify,
+  stayfresh,
+  quantico,
 }
 
-
-
-import { Header } from "@/components/components"
-
-const experiences = [
-    "procurify",
-    "stayfresh",
-    "quantico",
-    "edifier"
-
-]
+const experiences = ["procurify", "stayfresh", "quantico", "edifier"] as const
 
 const experienceData = {
   procurify: {
@@ -41,9 +27,7 @@ const experienceData = {
     date: 'Incoming Fall 2025',
     description: "Working in Procurify's Engineering Team on their spend management system",
     techstack: "Python, Django, React, Typescript, AWS, Docker, Kubernetes",
-    bullets: [
-        "More Coming Soon!"
-    ]
+    bullets: ["More Coming Soon!"]
   },
   stayfresh: {
     company: "Stay Fresh",
@@ -52,12 +36,11 @@ const experienceData = {
     description: "Worked on Stay Fresh's mobile app",
     techstack: "Javascript, Node.js, React Native, Express",
     bullets: [
-        "Designed and developed product, shop, and account pages using React Native, collaborating with product/design teams to deliver scalable components",
-        "Took ownership of API development, designing and implementing 15+ RESTful endpoints with Node.js and Express, including secure user session management via JWT authentication",
-        "Analyzed and optimized app performance, reducing load times by 20% and improving responsiveness through frontend optimization and refactoring"
+      "Designed and developed product, shop, and account pages using React Native, collaborating with product/design teams to deliver scalable components",
+      "Took ownership of API development, designing and implementing 15+ RESTful endpoints with Node.js and Express, including secure user session management via JWT authentication",
+      "Analyzed and optimized app performance, reducing load times by 20% and improving responsiveness through frontend optimization and refactoring"
     ]
   },
-  // add more experiences...
   quantico: {
     company: "UBC Quantico Research",
     title: 'Software Developer',
@@ -65,11 +48,10 @@ const experienceData = {
     description: "Working on machine learning models and fintech apps",
     techstack: "Python, Tensorflow, AWS, Golang",
     bullets: [
-        "Refactored TimeGAN model for Stock Forecasting in TensorFlow 2; improved training performance by 60% through leveraging AWS EC2 instance",
-        "Implemented modules for a Python backtesting framework, contributing core logic to support evaluation of trading strategies on 10+ years of stock data",
-        "Led weekly planning meetings, shared implementation ideas with the team, and presented project progress and trade-offs during team demo sessions"
+      "Refactored TimeGAN model for Stock Forecasting in TensorFlow 2; improved training performance by 60% through leveraging AWS EC2 instance",
+      "Implemented modules for a Python backtesting framework, contributing core logic to support evaluation of trading strategies on 10+ years of stock data",
+      "Led weekly planning meetings, shared implementation ideas with the team, and presented project progress and trade-offs during team demo sessions"
     ]
-
   },
   edifier: {
     company: "Edifier",
@@ -78,126 +60,134 @@ const experienceData = {
     description: "Edifier's sales/marketing team",
     techstack: "Javascript, Node.js, React Native, Express",
     bullets: [
-        "Contributed actively to 3 product and market research projects at Edifier Beijing, leveraging my experience to provide unique perspectives on international market preferences",
-        "Delivered successful client engagements by developing concise product presentations for clients, highlighting key features, strengths, and competitive advantages of our products"
+      "Contributed actively to 3 product and market research projects at Edifier Beijing, leveraging my experience to provide unique perspectives on international market preferences",
+      "Delivered successful client engagements by developing concise product presentations for clients, highlighting key features, strengths, and competitive advantages of our products"
     ]
-
   }
-}
+} as const
 
 export default function ExperienceDetailPage() {
-//   const {slug}: string = use<string>(params);
-  const { slug } = useParams() as { slug: string };
-  //
-  const data = experienceData[slug as keyof typeof experienceData];
-  const router = useRouter();
+  const { slug } = useParams() as { slug: keyof typeof experienceData }
+  const data = experienceData[slug]
+  const router = useRouter()
 
-  const [selectId, setSelectId] = useState(experiences.indexOf(slug))
-
-  useEffect(() => {
-  router.prefetch('/experience/stayfresh');
-  router.prefetch('/experience/procurify');
-  router.prefetch('/experience/edifier');
-  }, [router]);
+  const [selectId, setSelectId] = useState<number>(
+    Math.max(0, experiences.indexOf(slug as (typeof experiences)[number]))
+  )
 
   useEffect(() => {
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === "s") {
-          router.push("/experience")
-        }
-        else if (e.key === "ArrowDown") {
-                setSelectId((selectId + 1) % experiences.length)
-                router.push(`/experience/${experiences[selectId]}`)
-              }
-              else if (e.key === "ArrowUp") {
-                setSelectId((selectId - 1 + experiences.length) % experiences.length)
-                router.push(`/experience/${experiences[selectId]}`)
-            }
+    router.prefetch('/experience/stayfresh')
+    router.prefetch('/experience/procurify')
+    router.prefetch('/experience/edifier')
+  }, [router])
+
+  // Keyboard shortcuts: s to go back, arrows to move
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 's') {
+        router.push('/experience')
+      } else if (e.key === 'ArrowDown') {
+        setSelectId(prev => {
+          console.log(selectId)
+          const next = (prev + 1) % experiences.length
+          router.push(`/experience/${experiences[next]}`)
+          return next
+        })
+      } else if (e.key === 'ArrowUp') {
+        setSelectId(prev => {
+          const next = (prev - 1 + experiences.length) % experiences.length
+          router.push(`/experience/${experiences[next]}`)
+          return next
+        })
+      }
     }
-
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-    }, [router, selectId])
+  }, [router])
 
-  const image = imgTitle[slug] ?? ""
-  console.log(image)
-
-  if (!data) {
-    return <div>Experience not found</div>;
-  }
+  const image = imgTitle[slug] ?? undefined
+  if (!data) return <div>Experience not found</div>
 
   return (
-    <div className='h-dvh'>
-    <Header></Header>
-    <main className="bg-[#FFFDFA] h-9/10 flex flex-col justify-start items-center">
+    <div className="min-h-dvh bg-[#FFFDFA]">
+      <Header />
 
-        {/* BOX */}
-        <div className='flex flex-col w-8/10 h-9/10 justify-start'>
-            {/* HEADER */}
-            <div className='flex w-full h-15/100 items-center border-2 rounded-sm border-black-300/25 '>
-                <div className='flex w-1/2 h-full items-center pl-5'>
-                    <Text text = "Experience Info" size = "3xl"></Text>
-                </div>
-
-                <Link href = "/experience" className='flex w-1/2 h-full items-center justify-end pr-5'>
-                    <Text text = "Go Back" size = "3xl"></Text>
-                </Link>
-
-            </div>
-
-            <div className='h-85/100 flex flex-row items-center w-full items-center justify-center gap-24'>
-                {/* LEFT SIDE IMAGE/TITLE */}
-                <div className='flex w-40/100 h-full items-start justify-end mt-25'>
-                    <div className='flex flex-col w-65/100 h-8/10 items-center border-2 rounded-sm border-black-300/25'>
-                            <div className='justify-center ml-1 items-center mt-4'>
-                                 <Text text = {data.date} size = "2xl" align='center' c = "text-center"></Text>
-                            </div>
-                            <div className='pt-3 w-6/10'>
-                            <Image src = {image} alt = "image" className='justify-center border-2 border-black-300/25'/>
-                            </div>
-                            <div className='justify-center ml-1 items-center'>
-                                 <Text text = {data.title} size = "2xl" align='center' c = "text-center"></Text>
-                            </div>
-                            <div className='justify-center ml-1 items-center'>
-
-                            <Text text = {data.company} size = "2xl" align='center' c = "text-center"></Text>
-                            </div>
-                    </div>
-                </div>
-
-                {/* RIGHT SIDE DESC, TECH STACK, BULLET POINTS */}
-                <div className='flex flex-col w-60/100 gap-4 h-8/10'>
-                    <div className='w-full h-25/100 flex flex-col'>
-                        <Text text = "Description" size = "3xl"></Text>
-                        <Text text = {data.description} size = "2xl"></Text>
-
-                    </div>
-                    {  (data.company !== "Edifier" ?
-                    <div className='w-full h-25/100 flex flex-col'>
-                        <Text text = "Tech Stack" size = "3xl"></Text>
-                        <Text text = {data.techstack} size = "2xl"></Text>
-
-                    </div>
-                    : <></>)}
-
-                   <div className='w-full h-1/2 flex flex-col gap-2'>
-                    <Text text="Highlights" size="3xl" />
-                    <div className='flex flex-col gap-2 pl-4'>
-                        {data.bullets.map((text, index) => (
-                        <Text key={index} text={`• ${text}`} size='xl' />
-                        ))}
-                    </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
+      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-10 pt-4">
+        {/* Header Bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-2 border-black/30 rounded-md px-4 py-3">
+          <Text text="Experience Info" size="3xl" />
+          <Link href="/experience" className="underline-offset-4 hover:underline">
+            <Text text="Go Back" size="2xl" />
+          </Link>
         </div>
 
-    </main>
+        {/* Content */}
+        <div
+          className="
+            mt-6 grid grid-cols-1 lg:grid-cols-2 gap-8
+            items-start
+          "
+        >
+          {/* Left: Image & Meta */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="w-full max-w-md border-2 border-black/30 rounded-md p-4">
+              <div className="text-center">
+                <Text text={data.date} size="2xl" align="center" c="text-center" />
+              </div>
+
+              {image && (
+                <div className="mt-4">
+                  <div className="relative w-full aspect-[4/3] overflow-hidden rounded-sm border-2 border-black/30">
+                    <Image
+                      src={image}
+                      alt={`${data.company} image`}
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                </div>
+              )}
+
+              <div className="mt-4 space-y-1 text-center">
+                <Text text={data.title} size="2xl" align="center" c="text-center" />
+                <Text text={data.company} size="2xl" align="center" c="text-center" />
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Description / Tech / Bullets */}
+          <div className="flex flex-col gap-6">
+            <section>
+              <Text text="Description" size="3xl" />
+              <Text
+                text={data.description}
+                size="xl"
+                // a little more readable on mobile
+                c="leading-relaxed"
+              />
+            </section>
+
+            {data.company !== "Edifier" && (
+              <section>
+                <Text text="Tech Stack" size="3xl" />
+                <Text text={data.techstack} size="xl" />
+              </section>
+            )}
+
+            <section>
+              <Text text="Highlights" size="3xl" />
+              <ul className="mt-2 space-y-2 pl-4 list-disc">
+                {data.bullets.map((t, i) => (
+                  <li key={i}>
+                    <Text text={t} size="lg" />
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
+        </div>
+      </main>
     </div>
-  );
+  )
 }

@@ -92,7 +92,7 @@ export default function ProjectsPage() {
           {/* TOP TEXT BAR */}
           <div className='flex flex-row items-center w-[85%] mx-auto h-[10%] bg-[#ffe997] border-2 rounded-md justify-between px-2'>
             <Image src={leftArrow} alt="left" width={20} height={20} onClick={handleLeft} className='cursor-pointer' />
-            <h1 className='sm:text-md md:text-2xl lg:text-4xl text-pokemon text-center drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]'>{current.title}</h1>
+            <h1 className='text-sm sm:text-md md:text-2xl lg:text-4xl text-pokemon text-center drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]'>{current.title}</h1>
             <Image src={rightArrow} alt="right" width={20} height={20} onClick={handleRight} className='cursor-pointer' />
           </div>
 
@@ -119,22 +119,22 @@ export default function ProjectsPage() {
 
           {/* BOTTOM TEXT */}
           <div className='flex w-9/10 h-[30%] ml-auto bg-[#FFFFFF] border-[#878787] border-t-2 border-l-2 border-b-2 rounded-tl-lg rounded-bl-lg p-3'>
-            <p className='text-[17px] md:text-2xl lg:text-3xl'>{current.description}</p>
+            <p className='text-[14px] xs:text-[17px] md:text-2xl lg:text-3xl'>{current.description}</p>
           </div>
         </div>
 
         {/* RIGHT SIDE */}
         <div className='flex w-55/100 h-[87%] border-2 border-black rounded-md bg-[#ffe997] items-center justify-center'>
           <div className='h-9/10 w-96/100 flex flex-col bg-[#FFFFD4] justify-start items-start p-5'>
-            <h1 className='text-4xl font-bold flex items-center gap-2 drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]'>
+            <h1 className='text-3xl md:text-4xl font-bold flex items-center gap-2 drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]'>
               Tech Stack:
             </h1>
-            <ul className='pl-2 mt-2 text-3xl drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]'>
+            <ul className='pl-2 mt-2 text-2xl md:text-3xl drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]'>
               {current.tech.map((t, i) => (
                 <li key={i}>{t}</li>
               ))}
             </ul>
-            <Link href= "/" className='mt-auto text-4xl pt-5 drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]'>CLOSE PROJECTS</Link>
+            <Link href= "/" className='mt-auto text-3xl md:text-4xl pt-5 drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]'>CLOSE PROJECTS</Link>
           </div>
         </div>
 

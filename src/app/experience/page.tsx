@@ -68,7 +68,7 @@ type infoBoxProps = {
 
 const InfoBox = ({ text, className }: infoBoxProps) => {
   return (
-    <h1 className={clsx('text-sm md:text-xl lg:text-2xl font-emerald text-white drop-shadow-[0_4px_2px_rgb(0_0_0_/_0.67)]', className)}>
+    <h1 className={clsx('text-[10.5px] sm:text-sm md:text-xl lg:text-2xl font-emerald text-white drop-shadow-[0_4px_2px_rgb(0_0_0_/_0.67)]', className)}>
       {text}
     </h1>
   );
@@ -182,16 +182,16 @@ export default function ExperiencePage() {
                     </Link>
                   case false:
                     return <div key = {index} className='flex h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center '>
-                      <h1 className='text-2xl font-emerald text-pokemon drop-shadow-[0_2px_2px_rgb(0_0_0_/_0.67)] justify-center'> More to Come!</h1>
+                      <h1 className='text-xl md:text-2xl font-emerald text-pokemon drop-shadow-[0_2px_2px_rgb(0_0_0_/_0.67)] justify-center'> More to Come!</h1>
                     </div>
                 }
 
             })}
         <div  className='flex h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center '>
-                      <h1 className='text-2xl font-emerald text-pokemon drop-shadow-[0_2px_2px_rgb(0_0_0_/_0.67)] justify-center'> More to Come!</h1>
+                      <h1 className='text-xl md:text-2xl font-emerald text-pokemon drop-shadow-[0_2px_2px_rgb(0_0_0_/_0.67)] justify-center'> More to Come!</h1>
                     </div>
                     <div className='flex h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center '>
-                      <h1 className='text-2xl font-emerald text-pokemon drop-shadow-[0_2px_2px_rgb(0_0_0_/_0.67)] justify-center'> More to Come!</h1>
+                      <h1 className='text-xl md:text-2xl font-emerald text-pokemon drop-shadow-[0_2px_2px_rgb(0_0_0_/_0.67)] justify-center'> More to Come!</h1>
                     </div>
 
       </section>
@@ -208,7 +208,7 @@ export default function ExperiencePage() {
                             <section className= "flex bg-white w-98/100 h-92/100 rounded-sm inset-ring-2 inset-ring-whitesd">
                                 <span className='ml-2 pt-2'>
                                 <span className=
-                                        'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-[17px]  md:text-[20px] lg:text-[23px] justify-start'
+                                        'font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-[13px] sm:text-[17px]  md:text-[20px] lg:text-[23px] justify-start'
                                    >
                                   Choose an Experience to Learn More!
                                   </span>
@@ -229,7 +229,7 @@ export default function ExperiencePage() {
 
         <Link  href = {`/`} className="bg-[#766d95] h-[66%] w-[66%] flex rounded-sm border-2 border-black items-center justify-center pr-2 hover:bg-[#978ac1]">
         <h1 className='text-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]
-            text-white text-3xl text-center ml-2'>
+            text-white text-2xl md:text-3xl text-center ml-2'>
                 EXIT
                 </h1>
         </Link>
