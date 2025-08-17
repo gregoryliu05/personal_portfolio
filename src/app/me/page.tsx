@@ -148,7 +148,7 @@ return (
     <div className="mt-5 flex flex-row w-9/10 h-5/10 mx-auto">
       {/* LEFT SIDE TEXT & TITLE */}
       <div className="flex flex-col h-full w-6/10">
-        <h1 className="flex text-4xl justify-center drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]">
+        <h1 className="flex text-3xl md:text-4xl justify-center drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]">
           A BIT MORE ABOUT ME...
         </h1>
 
@@ -243,7 +243,7 @@ return (
           <section className="relative flex flex-row bg-white w-[97%] h-[90%] rounded-sm">
             <span className="pl-3 pt-2 w-full h-[95%]">
               <span className=
-                      'justify-left font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-[22px] md:text-3xl lg:text-4xl'>
+                      'justify-left font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)] block whitespace-normal break-words text-[18px] sm:text-[22px] md:text-3xl lg:text-4xl'>
                   {text[textIndex]}
                 </span>
             </span>
@@ -272,8 +272,8 @@ return (
     </div>
     {/* Exit Button (Bottom Right) */}
       <Link href="/" className="absolute bottom-4 right-4 bg-[#766d95] h-[8%] w-[12%] rounded-sm flex border-2 border-black items-center justify-center pr-2 hover:bg-[#978ac1]">
-            <h1 className='text-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]
-            text-[#FFFFFF] text-3xl'>
+            <h1 className='ml-2 text-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]
+            text-[#FFFFFF] text-2xl md:text-3xl'>
                 EXIT
                 </h1>
       </Link>

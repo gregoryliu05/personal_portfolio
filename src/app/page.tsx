@@ -99,7 +99,7 @@ export default function Home() {
                          "ring-black/75"
                      )}>
                          <section className= "flex bg-white w-97/100 h-9/10 rounded-sm inset-ring-2 inset-ring-whitesd">
-                             <span className='pl-3 pt-1 flex-row'>
+                             <span className='pl-3 sm:pt-1 flex-row'>
                                 <h1 className='font-emerald
                                   text-shadow-[0_2px_1px_rgb(0_0_0_/_0.20)]
                                   text-[#FFBC61]

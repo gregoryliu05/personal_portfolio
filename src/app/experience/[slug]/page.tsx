@@ -103,7 +103,7 @@ export default function ExperienceDetailPage() {
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [router])
+  }, [router, selectId])
 
   const image = imgTitle[slug] ?? undefined
   if (!data) return <div>Experience not found</div>
