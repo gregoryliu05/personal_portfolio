@@ -45,7 +45,7 @@ const projects = [
       'A desktop application that lets users create, save, and modify custom schedules, complete with persistent storage.',
     tech: ['Java', "Java Swing", "JUnit"],
     image: schedule,
-    github: 'https://github.com/yourusername/nba-fantasy-projections'
+    github: 'https://github.com/gregoryliu05/nba-fantasy-projections'
   },
   // add more projects here
 ]
