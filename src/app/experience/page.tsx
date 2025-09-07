@@ -24,7 +24,7 @@ const workExp = [
     title: "software engineer intern",
     company: "procurify",
     location: "vancouver",
-    date: "incoming sep 2025",
+    date: "present",
     link: "procurify",
     img: procurify
   },

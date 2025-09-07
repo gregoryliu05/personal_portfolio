@@ -24,7 +24,7 @@ const experienceData = {
   procurify: {
     company: "Procurify",
     title: 'Software Engineer Intern',
-    date: 'Incoming Fall 2025',
+    date: 'September 2025 - Present',
     description: "Working in Procurify's Engineering Team on their spend management system",
     techstack: "Python, Django, React, Typescript, AWS, Docker, Kubernetes",
     bullets: ["More Coming Soon!"]
