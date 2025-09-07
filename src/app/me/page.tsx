@@ -29,7 +29,7 @@ export type profileTextProps = {
 
 const text = [
     "Hello! this is a bit more about me. I am a detail-oriented software engineer who loves to solve problems and strives to make a positive impact on the world!        (Click the red arrow or press D for more)",
-    "This fall, I’ll be joining Procurify as a Software Engineering Intern, where I’ll be working on their spend management system and gaining hands-on experience in building scalable, impactful tools.",
+    "Im currently working as a Software Engineering Intern at Procurify, working on their spend management system and gaining hands-on experience in building scalable, impactful tools.",
     "Outside of work and school, you can usually find me hooping, working out, catching an NBA game, exploring new food spots around Van, or playing retro Pokémon games in my downtime!"
 ]
 
