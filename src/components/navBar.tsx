@@ -16,8 +16,8 @@ type navBarProps = {
 }
 
 const navBarItems = [
-    { text: "EXPERIENCE", type: "link", route: "/experience" , index: 0},
-    { text: "ME", type: "link", route: "/me", index: 1},
+    { text: "ME", type: "link", route: "/me", index: 0},
+    { text: "EXPERIENCE", type: "link", route: "/experience" , index: 1},
     { text: "RESUME", type: "link", route: "/resume", index: 2},
     { text: "PROJECTS", type: "link", route: "/projects", index: 3},
     { text: "CONTACT", type: "modal", route: "contact", index: 4},

@@ -15,6 +15,7 @@ import edifier from "./../../edifier.webp"
 import procurify from "./../../procurify.png"
 import stayfresh from "./../../stayfresh.jpeg"
 import quantico from "./../../quantico.jpg"
+import launchpad from './../../launchpad.png'
 
 
 // True IS NON EMPTY EXP
@@ -38,6 +39,14 @@ const workExp = [
   },
   { type: true,
     title: "software developer",
+    company: "launchpad",
+    location: "vancouver",
+    date: "present",
+    link: "launchpad",
+    img: launchpad
+  },
+  { type: true,
+    title: "software developer",
     company: "quantico",
     location: "vancouver",
     date: "present",
@@ -52,9 +61,9 @@ const workExp = [
     link: 'edifier',
     img: edifier
   },
-  // { type: false
+  { type: false
 
-  // },
+  },
   // { type: false
 
   // }
@@ -187,12 +196,12 @@ export default function ExperiencePage() {
                 }
 
             })}
-        <div  className='flex h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center '>
+        {/* <div  className='flex h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center '>
                       <h1 className='text-xl md:text-2xl font-emerald text-pokemon drop-shadow-[0_2px_2px_rgb(0_0_0_/_0.67)] justify-center'> More to Come!</h1>
                     </div>
                     <div className='flex h-[14%] w-[90%] justify-center gap-1 border-2 rounded-lg items-center '>
                       <h1 className='text-xl md:text-2xl font-emerald text-pokemon drop-shadow-[0_2px_2px_rgb(0_0_0_/_0.67)] justify-center'> More to Come!</h1>
-                    </div>
+                    </div> */}
 
       </section>
 

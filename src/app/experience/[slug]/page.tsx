@@ -10,12 +10,15 @@ import edifier from "./../../../edifier.webp"
 import procurify from "./../../../procurify.png"
 import stayfresh from "./../../../stayfresh.jpeg"
 import quantico from "./../../../quantico.jpg"
+import launchpad from './../../../launchpad.png'
+
 
 const imgTitle: Record<string, StaticImageData> = {
   edifier,
   procurify,
   stayfresh,
   quantico,
+  launchpad
 }
 
 const experiences = ["procurify", "stayfresh", "quantico", "edifier"] as const
@@ -27,7 +30,10 @@ const experienceData = {
     date: 'September 2025 - Present',
     description: "Working in Procurify's Engineering Team on their spend management system",
     techstack: "Python, Django, React, Typescript, AWS, Docker, Kubernetes",
-    bullets: ["More Coming Soon!"]
+    bullets: ["Revamped bill-sync validator: Engineered and tested data validation logic in accounting integrations microservice (Merge API, AWS, Python), resolving recurring data sync failures and reducing errors by 40%.",
+      "Extended FastAPI proxy architecture: Expanded REST API for integration-settings management and linked OpenAPI proxy routes to the main service, eliminating manual DB edits.",
+      "Repaired CI/CD pipeline: Corrected Dockerfile configuration to enforce automated test-pass gating, preventing faulty deployments and improving release reliability."
+    ]
   },
   stayfresh: {
     company: "Stay Fresh",
@@ -46,13 +52,26 @@ const experienceData = {
     title: 'Software Developer',
     date: 'January 2025 - Present',
     description: "Working on machine learning models and fintech apps",
-    techstack: "Python, Tensorflow, AWS, Golang",
+    techstack: "Python, TensorFlow, AWS, Golang",
     bullets: [
-      "Refactored TimeGAN model for Stock Forecasting in TensorFlow 2; improved training performance by 60% through leveraging AWS EC2 instance",
-      "Implemented modules for a Python backtesting framework, contributing core logic to support evaluation of trading strategies on 10+ years of stock data",
-      "Led weekly planning meetings, shared implementation ideas with the team, and presented project progress and trade-offs during team demo sessions"
+      "Optimized TimeGAN stock-forecasting model (TensorFlow 2) with parallelized training on AWS EC2, reducing training time by 60%.",
+      "Built core modules for a Python backtesting framework to evaluate trading strategies on 10+ years of stock data, accelerating model iteration cycle.",
+      "Architected and maintained club website for 30+ members, improving project onboarding and outreach."
     ]
   },
+  launchpad: {
+    company: "UBC Launchpad",
+    title: 'Software Developer',
+    date: 'September 2025 - Present',
+    description: "Working on a Cloud Gaming Platform",
+    techstack: "TypeScript, AWS (CDK, Lambda, DCV, DynamoDB), Python",
+    bullets: [
+      "Building a cloud-gaming platform supporting on-demand deployment with EC2 and low-latency DCV streaming",
+      "Automated session provisioning, authentication, and teardown using AWS Lambda and Step Functions via AWS CDK, cutting manual setup time by 90%.",
+      "Architected a DynamoDB abstraction layer using the Factory Pattern to standardize database operations."
+    ]
+  },
+
   edifier: {
     company: "Edifier",
     title: 'Marketing & Sales Intern',
