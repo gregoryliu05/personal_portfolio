@@ -1,7 +1,7 @@
 'use client'
 
 import clsx from 'clsx';
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import {backgroundMap } from "./components";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
