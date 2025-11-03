@@ -6,7 +6,8 @@ import { useEffect, useState, useRef } from "react";
 import {Text, TextBox, backgroundMap, Header} from "../components/components"
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
-import me from "./../characterme.png"
+import me from "./../charactermee.png"
+import sprite from "./../spriteme.png"
 import Image from 'next/image';
 
 
@@ -16,6 +17,7 @@ export default function Home() {
   const [isPopup, setIsPopup] = useState(false)
   const [showContact, setShowContact] = useState(false)
   const isClosingRef = useRef(false);
+  const [isHoverImage, setIsHoverImage] = useState(false)
 
   const handleMouseEnter = () => {
         if (!isClosingRef.current) {
@@ -60,14 +62,17 @@ export default function Home() {
           </span>
           </section>
 
-       <Image
-          src={me}
+       <Image onMouseEnter={() => setIsHoverImage(true)} onFocus={() => setIsHoverImage(true)}
+       onMouseLeave={() => setIsHoverImage(false)}
+          src={isHoverImage? (sprite): (me)}
           alt="me"
           width={1170}
           height={1562}
           className="w-full h-auto max-h-80 object-contain mx-auto"
         />
-
+        <h1 className='justify-center text-center font-emerald text-pokemon drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]'>
+         hover over the image...
+         </h1>
 
         <section className="flex h-3/8 w-full justify-center">
         <TextBox text = "Hi! My Name is Greg. Nice to meet you!" background = "green" height='h-1/3' width='w-8/10' size = "2xl" justify='center'/>
