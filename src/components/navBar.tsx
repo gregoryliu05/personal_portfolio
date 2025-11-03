@@ -1,18 +1,20 @@
 'use client'
 
 import clsx from 'clsx';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {backgroundMap } from "./components";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import arrow from "./../arrow.png"
+import { type RefObject } from 'react';
 
 type navBarProps = {
     background: string
     isPopup: boolean
     setIsPopup: (isPopup: boolean) => void
     setShowContact: (value: boolean) => void
+    ref: RefObject<boolean>
 }
 
 const navBarItems = [
@@ -24,9 +26,10 @@ const navBarItems = [
     { text: "EXIT", type: "button", route: "/", index: 5},
 ]
 
-export const NavBar = ({ background, setIsPopup, setShowContact }: navBarProps) => {
+export const NavBar = ({ background, setIsPopup, setShowContact, ref }: navBarProps) => {
     const [selectId, setSelectId] = useState(0)
     const router = useRouter();
+    const isClosingRef = ref
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -38,7 +41,9 @@ export const NavBar = ({ background, setIsPopup, setShowContact }: navBarProps) 
             } else if (key === "d") {
                 const selectedItem = navBarItems[selectId];
                 if (selectedItem.type === "button") {
+                    isClosingRef.current = true;
                     setIsPopup(false);
+                    setTimeout(() => {isClosingRef.current = false})
                 } else if (selectedItem.type === "modal") {
                     setShowContact(true);
                     setIsPopup(false);
@@ -46,13 +51,22 @@ export const NavBar = ({ background, setIsPopup, setShowContact }: navBarProps) 
                     router.push(selectedItem.route);
                 }
             } else if (key === "s") {
+                isClosingRef.current = true
                 setIsPopup(false)
+                setTimeout(() => { isClosingRef.current = false; }, 100);
+
             }
         }
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [router, setIsPopup, setShowContact, selectId])
+
+    const handleMouseEnter = (index: number) => {
+        if (!isClosingRef.current) {
+            setSelectId(index)
+        }
+    }
 
     return (
         <div className='flex w-9/10 h-8/10 justify-end items-center pr-2'>
@@ -74,7 +88,7 @@ export const NavBar = ({ background, setIsPopup, setShowContact }: navBarProps) 
                             const isSelected = index === selectId;
                             return (
                                 <div key={index}
-                                    onMouseEnter={() => setSelectId(index)}
+                                    onMouseEnter={() => handleMouseEnter(index)}
                                     onFocus={() => setSelectId(index)}
                                     className='flex col items-center'>
                                     {isSelected ? (

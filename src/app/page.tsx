@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {Text, TextBox, backgroundMap, Header} from "../components/components"
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
@@ -15,6 +15,14 @@ import {NavBar} from "../components/navBar"
 export default function Home() {
   const [isPopup, setIsPopup] = useState(false)
   const [showContact, setShowContact] = useState(false)
+  const isClosingRef = useRef(false);
+
+  const handleMouseEnter = () => {
+        if (!isClosingRef.current) {
+          setIsPopup(true)
+        }
+    }
+
 
    useEffect(() => {
           const handleKeyDown = (e: KeyboardEvent) => {
@@ -68,14 +76,10 @@ export default function Home() {
 
       {/* Side Popup */}
       <div className="flex w-45/100 md:w-1/3 lg:w-1/4 items-center justify-end">
-        {(isPopup? <NavBar background='purple' isPopup = {isPopup} setIsPopup = {setIsPopup} setShowContact={setShowContact}  />
+        {(isPopup? <NavBar background='purple' isPopup = {isPopup} setIsPopup = {setIsPopup} setShowContact={setShowContact}  ref={isClosingRef} />
         :
-        <button className='flex w-1/2 items-center' onMouseEnter = {() => {
-          (setIsPopup(true))
-
-        }}
-        onFocus = {() => {
-          (setIsPopup(true))}}>
+        <button className='flex w-1/2 items-center' onMouseEnter = {handleMouseEnter}
+        onFocus = {handleMouseEnter}>
         <Text text = "press (START) or hover here for more about me" size = "2xl"/>
         </button>
         )}
