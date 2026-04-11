@@ -25,6 +25,12 @@ export default function Home() {
         }
     }
 
+  const handleMouseLeave = () => {
+    if (!isClosingRef.current) {
+      setIsPopup(false)
+    }
+  }
+
 
    useEffect(() => {
           const handleKeyDown = (e: KeyboardEvent) => {
@@ -84,7 +90,7 @@ export default function Home() {
         {(isPopup? <NavBar background='purple' isPopup = {isPopup} setIsPopup = {setIsPopup} setShowContact={setShowContact}  ref={isClosingRef} />
         :
         <button className='flex w-1/2 items-center' onMouseEnter = {handleMouseEnter}
-        onFocus = {handleMouseEnter}>
+        onFocus = {handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <Text text = "press (START) or hover here for more about me" size = "2xl"/>
         </button>
         )}

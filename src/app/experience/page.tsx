@@ -16,12 +16,23 @@ import procurify from "./../../procurify.png"
 import stayfresh from "./../../stayfresh.jpeg"
 import quantico from "./../../quantico.jpg"
 import launchpad from './../../launchpad.png'
+import microsoft from './../../microsoft.png'
 
 
 // True IS NON EMPTY EXP
 // False is EMPTY EXP
+// Header is first
 const workExp = [
-  { type: "header",
+  {
+    type: "header",
+    title: "software engineer intern",
+    company: "microsoft",
+    location: "redmond",
+    date: "summer 2026",
+    link: "microsoft",
+    img: microsoft
+  },
+  { type: true,
     title: "software engineer intern",
     company: "procurify",
     location: "vancouver",
@@ -39,7 +50,7 @@ const workExp = [
   },
   { type: true,
     title: "software developer",
-    company: "launchpad",
+    company: "ubc launchpad",
     location: "vancouver",
     date: "present",
     link: "launchpad",
@@ -47,7 +58,7 @@ const workExp = [
   },
   { type: true,
     title: "software developer",
-    company: "quantico",
+    company: "quantico research",
     location: "vancouver",
     date: "present",
     link: "quantico",
@@ -60,9 +71,6 @@ const workExp = [
     date: "2023",
     link: 'edifier',
     img: edifier
-  },
-  { type: false
-
   },
   // { type: false
 
@@ -148,7 +156,7 @@ export default function ExperiencePage() {
         className={clsx('flex flex-col justify-center w-[80%] h-[48.96%] border-2 rounded-lg pb-2', selectId == 0 ? "border-[#fb702e] bg-[#79D1ed]": "border-black bg-[#3693e2]")}>
           <section className='flex flex-row'>
             <div className='ml-1 w-[21%]'>
-            <Image className='flex h-full justify-center rounded-full' src = {procurify} alt = "arrow" />
+            <Image className='flex h-full justify-center rounded-full' src = {workExp[0].img} alt = "arrow" />
             </div>
             <div className='pl-3 flex flex-col'>
               <InfoBox text = {workExp[0].title ?? ""}></InfoBox>

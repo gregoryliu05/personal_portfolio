@@ -6,6 +6,7 @@ import Image, { StaticImageData } from 'next/image'
 import { useEffect, useState } from 'react'
 import { Header, Text } from '@/components/components'
 
+import microsoft from "./../../../microsoft.png"
 import edifier from "./../../../edifier.webp"
 import procurify from "./../../../procurify.png"
 import stayfresh from "./../../../stayfresh.jpeg"
@@ -14,6 +15,7 @@ import launchpad from './../../../launchpad.png'
 
 
 const imgTitle: Record<string, StaticImageData> = {
+  microsoft,
   edifier,
   procurify,
   stayfresh,
@@ -21,14 +23,24 @@ const imgTitle: Record<string, StaticImageData> = {
   launchpad
 }
 
-const experiences = ["procurify", "stayfresh", "quantico", "edifier"] as const
+const experiences = ["microsoft", "procurify", "stayfresh", "quantico", "edifier"] as const
 
 const experienceData = {
+  microsoft: {
+    company: "Microsoft",
+    title: "Software Engineer Intern",
+    date: "Incoming Summer 2026",
+    team: "Azure Usage Billing Team",
+    techstack: "...",
+    bullets: [
+      "coming soon!"
+    ]
+  },
   procurify: {
     company: "Procurify",
     title: 'Software Engineer Intern',
     date: 'September 2025 - Present',
-    description: "Working in Procurify's Engineering Team on their spend management system",
+    team: "Application Platform Team",
     techstack: "Python, Django, React, Typescript, AWS, Docker, Kubernetes",
     bullets: ["Revamped bill-sync validator: Engineered and tested data validation logic in accounting integrations microservice (Merge API, AWS, Python), resolving recurring data sync failures and reducing errors by 40%.",
       "Extended FastAPI proxy architecture: Expanded REST API for integration-settings management and linked OpenAPI proxy routes to the main service, eliminating manual DB edits.",
@@ -39,7 +51,7 @@ const experienceData = {
     company: "Stay Fresh",
     title: 'Software Developer',
     date: 'January - April 2024',
-    description: "Worked on Stay Fresh's mobile app",
+    team: "Mobile App",
     techstack: "Javascript, Node.js, React Native, Express",
     bullets: [
       "Designed and developed product, shop, and account pages using React Native, collaborating with product/design teams to deliver scalable components",
@@ -49,9 +61,9 @@ const experienceData = {
   },
   quantico: {
     company: "UBC Quantico Research",
-    title: 'Software Developer',
+    title: 'Lead Software Developer',
     date: 'January 2025 - Present',
-    description: "Working on machine learning models and fintech apps",
+    team: "Interest Rate Derivates, Web Development",
     techstack: "Python, TensorFlow, AWS, Golang",
     bullets: [
       "Optimized TimeGAN stock-forecasting model (TensorFlow 2) with parallelized training on AWS EC2, reducing training time by 60%.",
@@ -63,7 +75,7 @@ const experienceData = {
     company: "UBC Launchpad",
     title: 'Software Developer',
     date: 'September 2025 - Present',
-    description: "Working on a Cloud Gaming Platform",
+    team: "Lunaris - Cloud Gaming Platform",
     techstack: "TypeScript, AWS (CDK, Lambda, DCV, DynamoDB), Python",
     bullets: [
       "Building a cloud-gaming platform supporting on-demand deployment with EC2 and low-latency DCV streaming",
@@ -74,9 +86,9 @@ const experienceData = {
 
   edifier: {
     company: "Edifier",
-    title: 'Marketing & Sales Intern',
+    title: 'Marketing Intern',
     date: 'June - July 2023',
-    description: "Edifier's sales/marketing team",
+    team: "International Sales/Marketing Team",
     techstack: "Javascript, Node.js, React Native, Express",
     bullets: [
       "Contributed actively to 3 product and market research projects at Edifier Beijing, leveraging my experience to provide unique perspectives on international market preferences",
@@ -175,12 +187,12 @@ export default function ExperienceDetailPage() {
             </div>
           </div>
 
-          {/* Right: Description / Tech / Bullets */}
+          {/* Right: Team / Tech / Bullets */}
           <div className="flex flex-col gap-6">
             <section>
-              <Text text="Description" size="3xl" />
+              <Text text="Team" size="3xl" />
               <Text
-                text={data.description}
+                text={data.team}
                 size="xl"
                 // a little more readable on mobile
                 c="leading-relaxed"

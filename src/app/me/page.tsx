@@ -28,8 +28,8 @@ export type profileTextProps = {
 }
 
 const text = [
-    "Hello! this is a bit more about me. I am a detail-oriented software engineer who loves to solve problems and strives to make a positive impact on the world!        (Click the red arrow or press D for more)",
-    "Im currently working as a Software Engineering Intern at Procurify, working on their spend management system and gaining hands-on experience in building scalable, impactful tools.",
+    "Hello! I'm a CS + Business student at UBC and a software engineer interested in backend systems and infra.       (Click the red arrow or press D for more)",
+    "Im currently working as a Software Engineering Intern at Procurify, on the Application Platform team. This summer, I will be joining Microsoft on the Azure Usage Billing team in Redmond!",
     "Outside of work and school, you can usually find me hooping, working out, catching an NBA game, exploring new food spots around Van, or playing retro Pokémon games in my downtime!"
 ]
 
@@ -148,7 +148,7 @@ return (
     <div className="mt-5 flex flex-row w-9/10 h-5/10 mx-auto">
       {/* LEFT SIDE TEXT & TITLE */}
       <div className="flex flex-col h-full w-6/10">
-        <h1 className="flex text-3xl md:text-4xl justify-center drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]">
+        <h1 className="flex text-black text-3xl md:text-4xl justify-center drop-shadow-[0_2px_4px_rgb(0_0_0_/_0.25)]">
           A BIT MORE ABOUT ME...
         </h1>
 

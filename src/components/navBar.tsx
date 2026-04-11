@@ -21,7 +21,7 @@ const navBarItems = [
     { text: "ME", type: "link", route: "/me", index: 0},
     { text: "EXPERIENCE", type: "link", route: "/experience" , index: 1},
     { text: "RESUME", type: "link", route: "/resume", index: 2},
-    { text: "PROJECTS", type: "link", route: "/projects", index: 3},
+    // { text: "PROJECTS", type: "link", route: "/projects", index: 3},
     { text: "CONTACT", type: "modal", route: "contact", index: 4},
     { text: "EXIT", type: "button", route: "/", index: 5},
 ]
@@ -30,6 +30,14 @@ export const NavBar = ({ background, setIsPopup, setShowContact, ref }: navBarPr
     const [selectId, setSelectId] = useState(0)
     const router = useRouter();
     const isClosingRef = ref
+
+    const closePopup = () => {
+        isClosingRef.current = true;
+        setIsPopup(false);
+        setTimeout(() => {
+            isClosingRef.current = false;
+        }, 100);
+    }
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -41,9 +49,7 @@ export const NavBar = ({ background, setIsPopup, setShowContact, ref }: navBarPr
             } else if (key === "d") {
                 const selectedItem = navBarItems[selectId];
                 if (selectedItem.type === "button") {
-                    isClosingRef.current = true;
-                    setIsPopup(false);
-                    setTimeout(() => {isClosingRef.current = false})
+                    closePopup();
                 } else if (selectedItem.type === "modal") {
                     setShowContact(true);
                     setIsPopup(false);
@@ -51,9 +57,7 @@ export const NavBar = ({ background, setIsPopup, setShowContact, ref }: navBarPr
                     router.push(selectedItem.route);
                 }
             } else if (key === "s") {
-                isClosingRef.current = true
-                setIsPopup(false)
-                setTimeout(() => { isClosingRef.current = false; }, 100);
+                closePopup();
 
             }
         }
@@ -68,8 +72,8 @@ export const NavBar = ({ background, setIsPopup, setShowContact, ref }: navBarPr
         }
     }
 
-    return (
-        <div className='flex w-9/10 h-8/10 justify-end items-center pr-2'>
+        return (
+        <div className='flex w-9/10 h-8/10 justify-end items-center pr-2' onMouseLeave={closePopup}>
             <section className={clsx(
                 backgroundMap[background] ?? '',
                 "flex",
